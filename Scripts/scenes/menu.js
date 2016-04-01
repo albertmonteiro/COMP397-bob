@@ -15,14 +15,14 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Menu.prototype.start = function () {
-            // adding background
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("road"));
-            this.addChild(this._backgroundImage);
+            // added ocean to the scene
+            this._ocean = new objects.Ocean();
+            this.addChild(this._ocean);
             //Add Menu Label
-            this._menuLabel = new objects.Label("ARE YOU READY?", "60px Consolas", "#ABABAB", config.Screen.CENTER_X, config.Screen.CENTER_Y - 75, true);
+            this._menuLabel = new objects.Label("MAIL PILOT", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X + 200, config.Screen.CENTER_Y + 155, true);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
             this.addChild(this._startButton);
             // Start Button event listener
             this._startButton.on("click", this._startButtonClick, this);
@@ -31,20 +31,12 @@ var scenes;
         };
         // INTRO Scene updates here
         Menu.prototype.update = function () {
+            this._ocean.update();
         };
         //EVENT HANDLERS ++++++++++++++++++++
-        // Start button click event handler
+        // LEFT_CAVE Button click event handler
         Menu.prototype._startButtonClick = function (event) {
-            // Play Car Start sound
-            var audioFile = document.createElement("audio");
-            audioFile.src = "../../Assets/audio/car_start.mp3";
-            audioFile.play();
-            // Play Background music
-            var audioFile = document.createElement("audio");
-            audioFile.src = "../../Assets/audio/background.mp3";
-            audioFile.loop = true;
-            audioFile.play();
-            // Switch to the PLAY Scene
+            // Switch to the LEFT_CAVE Scene
             scene = config.Scene.PLAY;
             changeScene();
         };
@@ -52,4 +44,5 @@ var scenes;
     }(objects.Scene));
     scenes.Menu = Menu;
 })(scenes || (scenes = {}));
+
 //# sourceMappingURL=menu.js.map

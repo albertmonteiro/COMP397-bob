@@ -2,10 +2,7 @@ var managers;
 (function (managers) {
     // COLLISION MANAGER CLASS
     var Collision = (function () {
-        // CONSTRUCTOR ++++++++++++++++
         function Collision(player) {
-            this._points = 0;
-            this._carHealth = 100;
             this._player = player;
         }
         Collision.prototype.distance = function (startPoint, endPoint) {
@@ -24,21 +21,35 @@ var managers;
             /* check if the distance between the player and
               the other object is less than the minimum distance */
             if (this.distance(startPoint, endPoint) < minimumDistance) {
-                // check if it's a gas tank
-                if (object.name === "gas") {
-                    // console.log("Collision with gas tank!");
-                    return true;
+                if (!object.isColliding) {
+                    // check if it's an island hit
+                    if (object.name === "island") {
+                        createjs.Sound.play("yay");
+                        scoreValue += 100; //award 100 points
+                    }
+                    // check if it's a cloud hit
+                    if (object.name === "cloud") {
+                        createjs.Sound.play("thunder");
+                        livesValue--; // lose a life
+                        // check if player has no more lives
+                        if (livesValue <= 0) {
+                            // turn off player engine
+                            this._player.engineSound.stop();
+                            // show the Game Over Screen
+                            scene = config.Scene.END;
+                            changeScene();
+                        }
+                    }
+                    object.isColliding = true;
                 }
-                // check if it's an enemy car
-                if (object.name === "red_car" || object.name === "blue_car"
-                    || object.name === "green_car" || object.name === "yellow_car") {
-                    // console.log("Collision with a car!");
-                    return true;
-                }
+            }
+            else {
+                object.isColliding = false;
             }
         };
         return Collision;
     }());
     managers.Collision = Collision;
 })(managers || (managers = {}));
+
 //# sourceMappingURL=collision.js.map

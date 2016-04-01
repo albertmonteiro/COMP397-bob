@@ -14,6 +14,8 @@ module objects {
         public height:number;     
         public centerX:number;
         public centerY:number;
+        public isColliding:boolean;
+        public soundString:string;
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor(bitmapString:string) {
@@ -24,6 +26,7 @@ module objects {
            this.height = this.getBounds().height;
            this.centerX = this.width * 0.5;
            this.centerY = this.height * 0.5;
+           this.isColliding = false;
            this._topBounds = -this.height;
            this._bottomBounds = config.Screen.HEIGHT + this.height;
            this._leftBounds = 0;
@@ -34,14 +37,14 @@ module objects {
         protected _checkBounds(value:number):void {
             var resetValue:number = 0;
             // check if y value has met the reset criteria
-            if(this.x >= value) {
+            if(this.y >= value) {
                 this._reset(resetValue);
             }
         }
         
         // Reset the Object offscreen
         protected _reset(value:number):void {
-            this.x = value;
+            this.y = value;
         }
         
         
@@ -49,7 +52,7 @@ module objects {
         public update():void {
             var boundValue:number = 0;
             // scroll the ocean 5 px per frame
-            this.x += this._speed.x;
+            this.y += this._speed.y;
             this._checkBounds(boundValue);
         }
     }

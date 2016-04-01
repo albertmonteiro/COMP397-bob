@@ -2,9 +2,9 @@
 module scenes {
     export class Menu extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
+        private _ocean: objects.Ocean;
         private _menuLabel: objects.Label;
         private _startButton: objects.Button;
-        private _backgroundImage: createjs.Bitmap;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -15,23 +15,23 @@ module scenes {
         
         // Start Method
         public start(): void {
-            // adding background
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("road"));
-            this.addChild(this._backgroundImage);
+            // added ocean to the scene
+            this._ocean = new objects.Ocean();
+            this.addChild(this._ocean);
             
             //Add Menu Label
             this._menuLabel = new objects.Label(
-                "ARE YOU READY?", "60px Consolas",
-                "#ABABAB",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y - 75, true);
+                "MAIL PILOT", "60px Consolas",
+                "#ffff00",
+                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
             
             
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(
                 "StartButton",
-                config.Screen.CENTER_X + 200,
-                config.Screen.CENTER_Y + 155, true);
+                config.Screen.CENTER_X,
+                config.Screen.CENTER_Y + 180, true);
             this.addChild(this._startButton);
             
             // Start Button event listener
@@ -44,26 +44,15 @@ module scenes {
 
         // INTRO Scene updates here
         public update(): void {
-
+            this._ocean.update();
         }
         
         
         //EVENT HANDLERS ++++++++++++++++++++
         
-        // Start button click event handler
+        // LEFT_CAVE Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
-            // Play Car Start sound
-            var audioFile = document.createElement("audio");
-            audioFile.src = "../../Assets/audio/car_start.mp3";
-            audioFile.play();
-            
-            // Play Background music
-            var audioFile = document.createElement("audio");
-            audioFile.src = "../../Assets/audio/background.mp3";
-            audioFile.loop = true;
-            audioFile.play();
-            
-            // Switch to the PLAY Scene
+            // Switch to the LEFT_CAVE Scene
             scene = config.Scene.PLAY;
             changeScene();
         }

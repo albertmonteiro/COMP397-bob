@@ -9,6 +9,10 @@ var stats: Stats;
 var currentScene: objects.Scene;
 var scene: number;
 
+var livesValue: number;
+var scoreValue: number;
+var highScoreValue: number = 0;
+
 // Game Scenes
 var menu: scenes.Menu;
 var play: scenes.Play;
@@ -19,19 +23,13 @@ var assetData:objects.Asset[] = [
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
     {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
     {id: "BackButton", src:"../../Assets/images/BackButton.png"},
-    {id: "road", src:"../../Assets/images/road.png"},
+    {id: "ocean", src:"../../Assets/images/ocean.gif"},
     {id: "plane", src:"../../Assets/images/plane.png"},
-    {id: "gas", src:"../../Assets/images/gas_can.png"},
+    {id: "island", src:"../../Assets/images/island.png"},
     {id: "cloud", src:"../../Assets/images/cloud.png"},
-    {id: "red_car", src:"../../Assets/images/red_car.png"},
-    {id: "blue_car", src:"../../Assets/images/blue_car.png"},
-    {id: "green_car", src:"../../Assets/images/green_car.png"},
-    {id: "yellow_car", src:"../../Assets/images/yellow_car.png"},
-    {id: "player_car", src:"../../Assets/images/player_car.png"},
-    {id: "points", src:"../../Assets/images/points.png"},
-    {id: "car_health", src:"../../Assets/images/car_health.png"},
-    {id: "gameover", src:"../../Assets/images/gameover.png"},
-    {id: "restart", src:"../../Assets/images/restart.png"},
+    {id: "engine", src:"../../Assets/audio/engine.ogg"},
+    {id: "yay", src:"../../Assets/audio/yay.ogg"},
+    {id: "thunder", src:"../../Assets/audio/thunder.ogg"}
 ];
 
 function preload() {
@@ -100,7 +98,7 @@ function changeScene(): void {
             stage.removeAllChildren();
             menu = new scenes.Menu();
             currentScene = menu;
-            console.log("Starting MENU Scene v:1.0");
+            console.log("Starting MENU Scene");
             break;
         case config.Scene.PLAY:
             // show the PLAY scene

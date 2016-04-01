@@ -9,31 +9,36 @@ var objects;
     var Player = (function (_super) {
         __extends(Player, _super);
         function Player() {
-            _super.call(this, assets.getResult("player_car"));
+            _super.call(this, assets.getResult("plane"));
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this._topBounds = this.height * 0.5;
-            this._bottomBounds = config.Screen.HEIGHT - (this.height * 0.5);
-            this.x = 50;
+            this._leftBounds = this.width * 0.5;
+            this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
+            this.y = 430;
+            // assign and play the engine sound
+            this.engineSound = createjs.Sound.play("engine");
+            // Loop engine sound forever
+            this.engineSound.loop = -1;
         }
         // PRIVATE METHODS
         Player.prototype._checkBounds = function () {
-            if (this.y < this._topBounds) {
-                this.y = this._topBounds;
+            if (this.x < this._leftBounds) {
+                this.x = this._leftBounds;
             }
-            if (this.y > this._bottomBounds) {
-                this.y = this._bottomBounds;
+            if (this.x > this._rightBounds) {
+                this.x = this._rightBounds;
             }
         };
         // PUBLIC METHODS
         Player.prototype.update = function () {
-            this.y = stage.mouseY;
+            this.x = stage.mouseX;
             this._checkBounds();
         };
         return Player;
     }(createjs.Bitmap));
     objects.Player = Player;
 })(objects || (objects = {}));
+
 //# sourceMappingURL=player.js.map
