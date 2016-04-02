@@ -7,6 +7,12 @@ var config;
         Scene.MENU = 0;
         Scene.PLAY = 1;
         Scene.END = 2;
+        Scene.LEVEL1 = 3;
+        Scene.LEVEL2 = 4;
+        Scene.LEVEL3 = 5;
+        Scene.INSTRUCTION1 = 6;
+        Scene.INSTRUCTION2 = 7;
+        Scene.INSTRUCTION3 = 8;
         return Scene;
     }());
     config.Scene = Scene;
@@ -30,5 +36,4 @@ var config;
     }());
     config.Game = Game;
 })(config || (config = {}));
-
 //# sourceMappingURL=config.js.map

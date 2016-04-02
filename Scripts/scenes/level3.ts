@@ -1,6 +1,6 @@
 // PLAY SCENE
 module scenes {
-    export class Play extends objects.Scene {
+    export class Level3 extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _ocean: objects.Ocean;
         private _island: objects.Island;

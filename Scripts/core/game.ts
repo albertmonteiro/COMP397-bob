@@ -17,10 +17,20 @@ var highScoreValue: number = 0;
 var menu: scenes.Menu;
 var play: scenes.Play;
 var end: scenes.End;
+var level1: scenes.Level1;
+var level2: scenes.Level2;
+var level3: scenes.Level3;
+var instruction1: scenes.Instruction1;
+var instruction2: scenes.Instruction2;
+var instruction3: scenes.Instruction3;
 
 var assetData:objects.Asset[] = [
     // Add your Assets here
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
+    {id: "InstructionButton", src:"../../Assets/images/InstructionButton.png"},
+    {id: "Level1", src:"../../Assets/images/Level1.png"},
+    {id: "Level2", src:"../../Assets/images/Level2.png"},
+    {id: "Level3", src:"../../Assets/images/Level3.png"},
     {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
     {id: "BackButton", src:"../../Assets/images/BackButton.png"},
     {id: "ocean", src:"../../Assets/images/ocean.gif"},
@@ -113,6 +123,48 @@ function changeScene(): void {
             end = new scenes.End();
             currentScene = end;
             console.log("Starting END Scene");
+            break;
+        case config.Scene.LEVEL1:
+            // show the LEVEL1 scene
+            stage.removeAllChildren();
+            level1 = new scenes.Level1();
+            currentScene = level1;
+            console.log("Starting LEVEL1 Scene");
+            break;
+        case config.Scene.LEVEL2:
+            // show the LEVEL2 scene
+            stage.removeAllChildren();
+            level2 = new scenes.Level2();
+            currentScene = level2;
+            console.log("Starting LEVEL2 Scene");
+            break;
+        case config.Scene.LEVEL3:
+            // show the LEVEL3 scene
+            stage.removeAllChildren();
+            level3 = new scenes.Level3();
+            currentScene = level3;
+            console.log("Starting LEVEL3 Scene");
+            break;
+        case config.Scene.INSTRUCTION1:
+            // show the INSTRUCTION1 scene
+            stage.removeAllChildren();
+            instruction1 = new scenes.Instruction1();
+            currentScene = instruction1;
+            console.log("Starting INSTRUCTION1 Scene");
+            break;
+        case config.Scene.INSTRUCTION2:
+            // show the INSTRUCTION2 scene
+            stage.removeAllChildren();
+            instruction2 = new scenes.Instruction2();
+            currentScene = instruction2;
+            console.log("Starting INSTRUCTION2 Scene");
+            break;
+        case config.Scene.INSTRUCTION3:
+            // show the INSTRUCTION3 scene
+            stage.removeAllChildren();
+            instruction3 = new scenes.Instruction3();
+            currentScene = instruction3;
+            console.log("Starting INSTRUCTION3 Scene");
             break;
     }
 

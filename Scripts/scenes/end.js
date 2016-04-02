@@ -54,5 +54,4 @@ var scenes;
     }(objects.Scene));
     scenes.End = End;
 })(scenes || (scenes = {}));
-
 //# sourceMappingURL=end.js.map
