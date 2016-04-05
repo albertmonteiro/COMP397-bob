@@ -15,9 +15,12 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Instruction2.prototype.start = function () {
+            // add background to menu page
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this.addChild(this._backgroundImage);
             // added ocean to the scene
-            this._ocean = new objects.Ocean();
-            this.addChild(this._ocean);
+            // this._ocean = new objects.Ocean();
+            // this.addChild(this._ocean);
             //Add Menu Label
             this._menuLabel = new objects.Label("LEVEL 2", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
@@ -30,9 +33,9 @@ var scenes;
             stage.addChild(this);
         };
         // INTRO Scene updates here
-        Instruction2.prototype.update = function () {
-            this._ocean.update();
-        };
+        //     public update(): void {
+        //       this._ocean.update();
+        //  }
         //EVENT HANDLERS ++++++++++++++++++++
         // START Button click event handler
         Instruction2.prototype._startButtonClick = function (event) {
@@ -41,7 +44,7 @@ var scenes;
             changeScene();
         };
         return Instruction2;
-    }(objects.Scene));
+    })(objects.Scene);
     scenes.Instruction2 = Instruction2;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=instruction2.js.map

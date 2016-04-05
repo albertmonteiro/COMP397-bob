@@ -28,6 +28,7 @@ var assetData:objects.Asset[] = [
     // Add your Assets here
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
     {id: "InstructionButton", src:"../../Assets/images/InstructionButton.png"},
+    {id: "MenuBackground", src:"../../Assets/images/MenuBackground.png"},
     {id: "Level1", src:"../../Assets/images/Level1.png"},
     {id: "Level2", src:"../../Assets/images/Level2.png"},
     {id: "Level3", src:"../../Assets/images/Level3.png"},

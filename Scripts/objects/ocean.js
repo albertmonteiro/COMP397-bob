@@ -34,7 +34,7 @@ var objects;
             this._checkBounds(0);
         };
         return Ocean;
-    }(objects.GameObject));
+    })(objects.GameObject);
     objects.Ocean = Ocean;
 })(objects || (objects = {}));
 //# sourceMappingURL=ocean.js.map

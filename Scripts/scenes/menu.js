@@ -15,11 +15,14 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Menu.prototype.start = function () {
+            // add background to menu page
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this.addChild(this._backgroundImage);
             // added ocean to the scene
-            this._ocean = new objects.Ocean();
-            this.addChild(this._ocean);
+            // this._ocean = new objects.Ocean();
+            // this.addChild(this._ocean);
             //Add Menu Label
-            this._menuLabel = new objects.Label("MAIL PILOT", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._menuLabel = new objects.Label("Burning Tires", "60px Consolas", "#ffffff", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200, true);
             this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
             this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 100, true);
@@ -46,9 +49,9 @@ var scenes;
             stage.addChild(this);
         };
         // INTRO Scene updates here
-        Menu.prototype.update = function () {
-            this._ocean.update();
-        };
+        // public update(): void {
+        // this._ocean.update();
+        // }
         //EVENT HANDLERS ++++++++++++++++++++
         // START button click event handler
         Menu.prototype._startButtonClick = function (event) {
@@ -81,7 +84,7 @@ var scenes;
             changeScene();
         };
         return Menu;
-    }(objects.Scene));
+    })(objects.Scene);
     scenes.Menu = Menu;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=menu.js.map
