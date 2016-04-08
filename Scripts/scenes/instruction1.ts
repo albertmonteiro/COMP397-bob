@@ -35,7 +35,7 @@ module scenes {
             this._backButton = new objects.Button(
                 "BackButton",
                 config.Screen.CENTER_X,
-                config.Screen.CENTER_Y + 180, true);
+                config.Screen.CENTER_Y + 150, true);
             this.addChild(this._backButton);
 
             // Start Button event listener

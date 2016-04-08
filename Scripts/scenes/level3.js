@@ -69,7 +69,7 @@ var scenes;
             this._updateScore();
         };
         return Level3;
-    })(objects.Scene);
+    }(objects.Scene));
     scenes.Level3 = Level3;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=level3.js.map

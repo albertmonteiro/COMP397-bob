@@ -25,7 +25,7 @@ var scenes;
             this._menuLabel = new objects.Label("Burning Tires", "60px Consolas", "#ffffff", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200, true);
             this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X + 200, config.Screen.CENTER_Y + 100, true);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X + 240, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startButton);
             // add the Instruction button to the MENU scene
             this._instructionButton = new objects.Button("InstructionButton", config.Screen.CENTER_X + 230, config.Screen.CENTER_Y + 200, true);
@@ -84,7 +84,7 @@ var scenes;
             changeScene();
         };
         return Menu;
-    })(objects.Scene);
+    }(objects.Scene));
     scenes.Menu = Menu;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=menu.js.map

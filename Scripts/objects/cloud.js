@@ -39,7 +39,7 @@ var objects;
             this._checkBounds(this._bottomBounds);
         };
         return Cloud;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Cloud = Cloud;
 })(objects || (objects = {}));
 //# sourceMappingURL=cloud.js.map
