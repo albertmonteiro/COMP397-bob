@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-// PLAY SCENE
+// Level3 SCENE
 var scenes;
 (function (scenes) {
     var Level3 = (function (_super) {
@@ -12,61 +12,124 @@ var scenes;
         function Level3() {
             _super.call(this);
         }
-        // PRIVATE METHODS
+        // PUBLIC METHODS +++++++++++++++++++++
+        // Start Method ++++++++++++++++++++++++++++++++++++++
+        Level3.prototype.start = function () {
+            // Set initial values
+            this._carCount = 1;
+            // We do not set the livesValue and scoreValue again for Level3
+            // livesValue = 5;
+            // scoreValue = 0;
+            this._timeLapsed = 0;
+            this._timeRemaining = 10;
+            // added road to the scene
+            this._road = new objects.Road();
+            this.addChild(this._road);
+            // added gas tank to the scene
+            this._gas = new objects.Gas();
+            this.addChild(this._gas);
+            // Add red cars
+            this._cars = new Array();
+            for (var car = 0; car < this._carCount; car++) {
+                this._cars[car] = new objects.Car();
+                this.addChild(this._cars[car]);
+            }
+            // Add blue cars
+            this._cars2 = new Array();
+            for (var car = 0; car < this._carCount; car++) {
+                this._cars2[car] = new objects.Car2();
+                this.addChild(this._cars2[car]);
+            }
+            // Add green cars
+            this._cars3 = new Array();
+            for (var car = 0; car < this._carCount; car++) {
+                this._cars3[car] = new objects.Car3();
+                this.addChild(this._cars3[car]);
+            }
+            // Add yellow cars
+            this._cars4 = new Array();
+            for (var car = 0; car < this._carCount; car++) {
+                this._cars4[car] = new objects.Car4();
+                this.addChild(this._cars4[car]);
+            }
+            // added player to the scene
+            this._player = new objects.Player();
+            this.addChild(this._player);
+            // add the level1ScoreBox the scene
+            this._level1ScoreBox = new objects.Button("level1ScoreBox", 484, 5, false);
+            this.addChild(this._level1ScoreBox);
+            // add the level1TImerBox the scene
+            this._clockBox = new objects.Button("level1TImerBox", 530, 210, false);
+            this.addChild(this._clockBox);
+            // add the level1LivesBox the scene
+            this._level1LivesBox = new objects.Button("level1LivesBox", 483, 323, false);
+            this.addChild(this._level1LivesBox);
+            // Add _scoreLabel
+            this._scoreLabel = new objects.Label("Score: " + scoreValue, "14px Consolas", "#000000", 600, 70, false);
+            this._scoreLabel.textAlign = "right";
+            this.addChild(this._scoreLabel);
+            // Add _timeLabel
+            this._timeLabel = new objects.Label("" + this._timeRemaining, "30px Consolas", "#000000", 570, 225, false);
+            this._timeLabel.textAlign = "right";
+            this.addChild(this._timeLabel);
+            // Add _livesLabel
+            this._livesLabel = new objects.Label("Lives: " + livesValue, "14px Consolas", "#000000", 585, 390, false);
+            this._livesLabel.textAlign = "right";
+            this.addChild(this._livesLabel);
+            // added collision3 manager to the scene
+            this._collision3 = new managers.Collision3(this._player);
+            // add this scene to the global stage container
+            stage.addChild(this);
+        };
+        // PLAY Scene updates here ++++++++++++++++++++++++++++++++++++++
+        Level3.prototype.update = function () {
+            var _this = this;
+            this._timeLapsed++;
+            if (this._timeLapsed % 100 == 0) {
+                if (this._timeRemaining <= 1) {
+                    // turn off player engine
+                    this._player.level1BackgroundMusic.stop();
+                    // Switch to WIN scene
+                    scene = config.Scene.WIN;
+                    changeScene();
+                }
+                this._timeRemaining--;
+            }
+            // Constantly update road, gastank and player
+            this._road.update();
+            this._gas.update();
+            this._player.update();
+            // Update red car
+            this._cars.forEach(function (car) {
+                car.update();
+                _this._collision3.check(car);
+            });
+            // Update blue car
+            this._cars2.forEach(function (car2) {
+                car2.update();
+                _this._collision3.check(car2);
+            });
+            // Update green car
+            this._cars3.forEach(function (car3) {
+                car3.update();
+                _this._collision3.check(car3);
+            });
+            // Update yellow car
+            this._cars4.forEach(function (car4) {
+                car4.update();
+                _this._collision3.check(car4);
+            });
+            this._collision3.check(this._gas);
+            this._updateScore();
+        };
         /**
          * @method _updateScore
          * @return void
          */
         Level3.prototype._updateScore = function () {
-            this._livesLabel.text = "Lives: " + livesValue;
             this._scoreLabel.text = "Score: " + scoreValue;
-        };
-        // PUBLIC METHODS +++++++++++++++++++++
-        // Start Method
-        Level3.prototype.start = function () {
-            // Set Cloud Count
-            this._cloudCount = 3;
-            livesValue = 5;
-            scoreValue = 0;
-            // Instantiate Cloud array
-            this._clouds = new Array();
-            // added ocean to the scene
-            this._ocean = new objects.Ocean();
-            this.addChild(this._ocean);
-            // added island to the scene
-            this._island = new objects.Island();
-            this.addChild(this._island);
-            // added player to the scene
-            this._player = new objects.Player();
-            this.addChild(this._player);
-            //added clouds to the scene
-            for (var cloud = 0; cloud < this._cloudCount; cloud++) {
-                this._clouds[cloud] = new objects.Cloud();
-                this.addChild(this._clouds[cloud]);
-            }
-            //added LivesLabel to the scene
-            this._livesLabel = new objects.Label("Lives: " + livesValue, "40px Consolas", "#ffff00", 10, 10, false);
-            this.addChild(this._livesLabel);
-            //added LivesLabel to the scene
-            this._scoreLabel = new objects.Label("Score: " + scoreValue, "40px Consolas", "#ffff00", 390, 10, false);
-            this.addChild(this._scoreLabel);
-            // added collision manager to the scene
-            this._collision = new managers.Collision(this._player);
-            // add this scene to the global stage container
-            stage.addChild(this);
-        };
-        // PLAY Scene updates here
-        Level3.prototype.update = function () {
-            var _this = this;
-            this._ocean.update();
-            this._island.update();
-            this._player.update();
-            this._clouds.forEach(function (cloud) {
-                cloud.update();
-                _this._collision.check(cloud);
-            });
-            this._collision.check(this._island);
-            this._updateScore();
+            this._timeLabel.text = "" + this._timeRemaining;
+            this._livesLabel.text = "Lives: " + livesValue;
         };
         return Level3;
     }(objects.Scene));

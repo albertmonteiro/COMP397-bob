@@ -5,14 +5,14 @@ var config;
         function Scene() {
         }
         Scene.MENU = 0;
-        Scene.PLAY = 1;
-        Scene.END = 2;
-        Scene.LEVEL1 = 3;
-        Scene.LEVEL2 = 4;
-        Scene.LEVEL3 = 5;
-        Scene.INSTRUCTION1 = 6;
-        Scene.INSTRUCTION2 = 7;
-        Scene.INSTRUCTION3 = 8;
+        Scene.INSTRUCTION1 = 1;
+        Scene.INSTRUCTION2 = 2;
+        Scene.INSTRUCTION3 = 3;
+        Scene.LEVEL1 = 4;
+        Scene.LEVEL2 = 5;
+        Scene.LEVEL3 = 6;
+        Scene.END = 7;
+        Scene.WIN = 8;
         return Scene;
     }());
     config.Scene = Scene;

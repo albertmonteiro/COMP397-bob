@@ -1,8 +1,7 @@
-// MENU SCENE
+// Instruction SCENE
 module scenes {
     export class Instruction1 extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _ocean: objects.Ocean;
         private _menuLabel: objects.Label;
         private _backButton: objects.Button;
         private _backgroundImage: createjs.Bitmap;
@@ -17,12 +16,8 @@ module scenes {
         // Start Method
         public start(): void {
             // add background to menu page
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
             this.addChild(this._backgroundImage);
-
-            // added ocean to the scene
-            //   this._ocean = new objects.Ocean();
-            //  this.addChild(this._ocean);
 
             //Add Menu Label
             this._menuLabel = new objects.Label(
@@ -33,7 +28,7 @@ module scenes {
 
             // add the Back button to the MENU scene
             this._backButton = new objects.Button(
-                "BackButton",
+                "backButton",
                 config.Screen.CENTER_X,
                 config.Screen.CENTER_Y + 150, true);
             this.addChild(this._backButton);
@@ -45,15 +40,9 @@ module scenes {
             stage.addChild(this);
         }
 
-        // INTRO Scene updates here
-        //  public update(): void {
-        //    this._ocean.update();
-        // }
-
-
         //EVENT HANDLERS ++++++++++++++++++++
 
-        // START Button click event handler
+        // Button click event handler
         private _backButtonClick(event: createjs.MouseEvent) {
             // Switch to the MENU Scene
             scene = config.Scene.MENU;

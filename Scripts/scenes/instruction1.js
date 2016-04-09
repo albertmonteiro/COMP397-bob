@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-// MENU SCENE
+// Instruction SCENE
 var scenes;
 (function (scenes) {
     var Instruction1 = (function (_super) {
@@ -16,28 +16,21 @@ var scenes;
         // Start Method
         Instruction1.prototype.start = function () {
             // add background to menu page
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
             this.addChild(this._backgroundImage);
-            // added ocean to the scene
-            //   this._ocean = new objects.Ocean();
-            //  this.addChild(this._ocean);
             //Add Menu Label
             this._menuLabel = new objects.Label("INSTRUCTIONS", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
             // add the Back button to the MENU scene
-            this._backButton = new objects.Button("BackButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150, true);
+            this._backButton = new objects.Button("backButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150, true);
             this.addChild(this._backButton);
             // Start Button event listener
             this._backButton.on("click", this._backButtonClick, this);
             // add this scene to the global stage container
             stage.addChild(this);
         };
-        // INTRO Scene updates here
-        //  public update(): void {
-        //    this._ocean.update();
-        // }
         //EVENT HANDLERS ++++++++++++++++++++
-        // START Button click event handler
+        // Button click event handler
         Instruction1.prototype._backButtonClick = function (event) {
             // Switch to the MENU Scene
             scene = config.Scene.MENU;

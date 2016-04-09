@@ -15,32 +15,46 @@ var highScoreValue: number = 0;
 
 // Game Scenes
 var menu: scenes.Menu;
-var play: scenes.Play;
-var end: scenes.End;
-var level1: scenes.Level1;
-var level2: scenes.Level2;
-var level3: scenes.Level3;
 var instruction1: scenes.Instruction1;
 var instruction2: scenes.Instruction2;
 var instruction3: scenes.Instruction3;
+var level1: scenes.Level1;
+var level2: scenes.Level2;
+var level3: scenes.Level3;
+var end: scenes.End;
+var win: scenes.Win;
 
 var assetData:objects.Asset[] = [
     // Add your Assets here
-    {id: "StartButton", src:"../../Assets/images/StartButton.png"},
-    {id: "InstructionButton", src:"../../Assets/images/InstructionButton.png"},
-    {id: "MenuBackground", src:"../../Assets/images/MenuBackground.png"},
-    {id: "Level1", src:"../../Assets/images/Level1.png"},
-    {id: "Level2", src:"../../Assets/images/Level2.png"},
-    {id: "Level3", src:"../../Assets/images/Level3.png"},
-    {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
-    {id: "BackButton", src:"../../Assets/images/BackButton.png"},
-    {id: "ocean", src:"../../Assets/images/ocean.gif"},
-    {id: "plane", src:"../../Assets/images/plane.png"},
-    {id: "island", src:"../../Assets/images/island.png"},
-    {id: "cloud", src:"../../Assets/images/cloud.png"},
-    {id: "engine", src:"../../Assets/audio/engine.ogg"},
-    {id: "yay", src:"../../Assets/audio/yay.ogg"},
-    {id: "thunder", src:"../../Assets/audio/thunder.ogg"}
+    {id: "menuBackground", src:"../../Assets/images/menuBackground.png"},
+    {id: "startButton", src:"../../Assets/images/startButton.png"},
+    {id: "instructionButton", src:"../../Assets/images/instructionButton.png"},
+    {id: "backButton", src:"../../Assets/images/backButton.png"},
+    {id: "level1", src:"../../Assets/images/level1.png"},
+    {id: "level2", src:"../../Assets/images/level2.png"},
+    {id: "level3", src:"../../Assets/images/level3.png"},
+    {id: "restartPedal", src:"../../Assets/images/restartPedal.png"},
+    
+    // Level1 assets
+    {id: "road", src:"../../Assets/images/road.png"},
+    {id: "player_car", src:"../../Assets/images/player_car.png"},
+    {id: "red_car", src:"../../Assets/images/red_car.png"},
+    {id: "blue_car", src:"../../Assets/images/blue_car.png"},
+    {id: "green_car", src:"../../Assets/images/green_car.png"},
+    {id: "yellow_car", src:"../../Assets/images/yellow_car.png"},
+    {id: "gas", src:"../../Assets/images/gas_can.png"},
+    {id: "level1ScoreBox", src:"../../Assets/images/level1ScoreBox.png"},
+    {id: "level1LivesBox", src:"../../Assets/images/level1LivesBox.png"},
+    {id: "level1TImerBox", src:"../../Assets/images/level1TImerBox.png"},
+    {id: "level1BackgroundMusic", src:"../../Assets/audio/level1BackgroundMusic.mp3"},
+    {id: "carStartSound", src:"../../Assets/audio/carStartSound.mp3"},
+    {id: "carCrashSound", src:"../../Assets/audio/carCrashSound.mp3"},
+    {id: "gastankSound", src:"../../Assets/audio/gastankSound.mp3"},
+    
+    // Level2 assets
+    
+    // Level3 assets
+    
 ];
 
 function preload() {
@@ -111,19 +125,26 @@ function changeScene(): void {
             currentScene = menu;
             console.log("Starting MENU Scene");
             break;
-        case config.Scene.PLAY:
-            // show the PLAY scene
+        case config.Scene.INSTRUCTION1:
+            // show the INSTRUCTION1 scene
             stage.removeAllChildren();
-            play = new scenes.Play();
-            currentScene = play;
-            console.log("Starting PLAY Scene");
+            instruction1 = new scenes.Instruction1();
+            currentScene = instruction1;
+            console.log("Starting INSTRUCTION1 Scene");
             break;
-        case config.Scene.END:
-            // show the END scene
+        case config.Scene.INSTRUCTION2:
+            // show the INSTRUCTION2 scene
             stage.removeAllChildren();
-            end = new scenes.End();
-            currentScene = end;
-            console.log("Starting END Scene");
+            instruction2 = new scenes.Instruction2();
+            currentScene = instruction2;
+            console.log("Starting INSTRUCTION2 Scene");
+            break;
+        case config.Scene.INSTRUCTION3:
+            // show the INSTRUCTION3 scene
+            stage.removeAllChildren();
+            instruction3 = new scenes.Instruction3();
+            currentScene = instruction3;
+            console.log("Starting INSTRUCTION3 Scene");
             break;
         case config.Scene.LEVEL1:
             // show the LEVEL1 scene
@@ -146,26 +167,19 @@ function changeScene(): void {
             currentScene = level3;
             console.log("Starting LEVEL3 Scene");
             break;
-        case config.Scene.INSTRUCTION1:
-            // show the INSTRUCTION1 scene
+        case config.Scene.END:
+            // show the END scene
             stage.removeAllChildren();
-            instruction1 = new scenes.Instruction1();
-            currentScene = instruction1;
-            console.log("Starting INSTRUCTION1 Scene");
+            end = new scenes.End();
+            currentScene = end;
+            console.log("Starting END Scene");
             break;
-        case config.Scene.INSTRUCTION2:
-            // show the INSTRUCTION2 scene
+        case config.Scene.WIN:
+            // show the WIN scene
             stage.removeAllChildren();
-            instruction2 = new scenes.Instruction2();
-            currentScene = instruction2;
-            console.log("Starting INSTRUCTION2 Scene");
-            break;
-        case config.Scene.INSTRUCTION3:
-            // show the INSTRUCTION3 scene
-            stage.removeAllChildren();
-            instruction3 = new scenes.Instruction3();
-            currentScene = instruction3;
-            console.log("Starting INSTRUCTION3 Scene");
+            win = new scenes.Win();
+            currentScene = win;
+            console.log("Starting WIN Scene");
             break;
     }
 

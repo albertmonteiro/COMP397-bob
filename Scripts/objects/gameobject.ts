@@ -9,42 +9,42 @@ module objects {
         protected _bottomBounds:number;
         
         // PUBLIC INSTANCE VARIABLES
-        public name:string;
-        public width:number;
-        public height:number;     
-        public centerX:number;
-        public centerY:number;
-        public isColliding:boolean;
-        public soundString:string;
+        public name: string;
+        public width: number;
+        public height: number;
+        public centerX: number;
+        public centerY: number;
+        public isColliding: boolean;
+        public soundString: string;
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        constructor(bitmapString:string) {
+        constructor(bitmapString: string) {
             super(assets.getResult(bitmapString));
-            
-           this._speed = new createjs.Point(0, 0);
-           this.width = this.getBounds().width;
-           this.height = this.getBounds().height;
-           this.centerX = this.width * 0.5;
-           this.centerY = this.height * 0.5;
-           this.isColliding = false;
-           this._topBounds = -this.height;
-           this._bottomBounds = config.Screen.HEIGHT + this.height;
-           this._leftBounds = 0;
-           this._rightBounds = config.Screen.WIDTH - this.width;
+
+            this._speed = new createjs.Point(0, 0);
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
+            this.centerX = this.width * 0.5;
+            this.centerY = this.height * 0.5;
+            this._topBounds = -this.height;
+            this.isColliding = false;
+            this._bottomBounds = config.Screen.HEIGHT + this.height;
+            this._leftBounds = 0;
+            this._rightBounds = config.Screen.WIDTH - this.width;
         }
         
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         protected _checkBounds(value:number):void {
             var resetValue:number = 0;
             // check if y value has met the reset criteria
-            if(this.y >= value) {
+            if(this.x >= value) {
                 this._reset(resetValue);
             }
         }
         
         // Reset the Object offscreen
         protected _reset(value:number):void {
-            this.y = value;
+            this.x = value;
         }
         
         
@@ -52,7 +52,7 @@ module objects {
         public update():void {
             var boundValue:number = 0;
             // scroll the ocean 5 px per frame
-            this.y += this._speed.y;
+            this.x += this._speed.x;
             this._checkBounds(boundValue);
         }
     }

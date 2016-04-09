@@ -16,30 +16,27 @@ var scenes;
         // Start Method
         Menu.prototype.start = function () {
             // add background to menu page
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
             this.addChild(this._backgroundImage);
-            // added ocean to the scene
-            // this._ocean = new objects.Ocean();
-            // this.addChild(this._ocean);
             //Add Menu Label
-            this._menuLabel = new objects.Label("Burning Tires", "60px Consolas", "#ffffff", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200, true);
+            this._menuLabel = new objects.Label("BURNING TIRES!", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200, true);
             this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X + 240, config.Screen.CENTER_Y + 80, true);
+            this._startButton = new objects.Button("startButton", config.Screen.CENTER_X + 240, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startButton);
             // add the Instruction button to the MENU scene
-            this._instructionButton = new objects.Button("InstructionButton", config.Screen.CENTER_X + 230, config.Screen.CENTER_Y + 200, true);
+            this._instructionButton = new objects.Button("instructionButton", config.Screen.CENTER_X + 230, config.Screen.CENTER_Y + 200, true);
             this.addChild(this._instructionButton);
             // add the LEVEL1 button to the MENU scene
-            this._level1Button = new objects.Button("Level1", config.Screen.CENTER_X - 160, config.Screen.CENTER_Y + 200, true);
+            this._level1Button = new objects.Button("level1", config.Screen.CENTER_X - 160, config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level1Button);
             // add the LEVEL2 button to the MENU scene
-            this._level2Button = new objects.Button("Level2", config.Screen.CENTER_X, config.Screen.CENTER_Y + 200, true);
+            this._level2Button = new objects.Button("level2", config.Screen.CENTER_X, config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level2Button);
             // add the LEVEL3 button to the MENU scene
-            this._level3Button = new objects.Button("Level3", config.Screen.CENTER_X + 160, config.Screen.CENTER_Y + 200, true);
+            this._level3Button = new objects.Button("level3", config.Screen.CENTER_X + 160, config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level3Button);
-            // Start Button event listener
+            // Button event listeners
             this._startButton.on("click", this._startButtonClick, this);
             this._instructionButton.on("click", this._instructionButtonClick, this);
             this._level1Button.on("click", this._level1ButtonClick, this);
@@ -48,20 +45,18 @@ var scenes;
             // add this scene to the global stage container
             stage.addChild(this);
         };
-        // INTRO Scene updates here
-        // public update(): void {
-        // this._ocean.update();
-        // }
         //EVENT HANDLERS ++++++++++++++++++++
         // START button click event handler
         Menu.prototype._startButtonClick = function (event) {
+            // Play carStartSound
+            this._carStartSound = createjs.Sound.play("carStartSound");
             // Switch to the LEVEL1 Scene
             scene = config.Scene.LEVEL1;
             changeScene();
         };
         // Instruction button click event handler
         Menu.prototype._instructionButtonClick = function (event) {
-            // Switch to the LEVEL1 Scene
+            // Switch to the INSTRUCTION1 Scene
             scene = config.Scene.INSTRUCTION1;
             changeScene();
         };
