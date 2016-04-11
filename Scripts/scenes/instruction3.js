@@ -16,13 +16,13 @@ var scenes;
         // Start Method
         Instruction3.prototype.start = function () {
             // add background to menu page
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground3"));
             this.addChild(this._backgroundImage);
             //Add Menu Label
-            this._menuLabel = new objects.Label("LEVEL 3", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._menuLabel = new objects.Label("LEVEL 3 : Desert", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
             // add the Back button to the MENU scene
-            this._backButton = new objects.Button("startButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150, true);
+            this._backButton = new objects.Button("startButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 100, true);
             this.addChild(this._backButton);
             // Start Button event listener
             this._backButton.on("click", this._backButtonClick, this);
@@ -37,7 +37,7 @@ var scenes;
             changeScene();
         };
         return Instruction3;
-    }(objects.Scene));
+    })(objects.Scene);
     scenes.Instruction3 = Instruction3;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=instruction3.js.map

@@ -27,6 +27,7 @@ var win: scenes.Win;
 var assetData:objects.Asset[] = [
     // Add your Assets here
     {id: "menuBackground", src:"../../Assets/images/menuBackground.png"},
+    {id: "menuBackground3", src:"../../Assets/images/menuBackground3.png"},
     {id: "startButton", src:"../../Assets/images/startButton.png"},
     {id: "instructionButton", src:"../../Assets/images/instructionButton.png"},
     {id: "backButton", src:"../../Assets/images/backButton.png"},
@@ -37,6 +38,7 @@ var assetData:objects.Asset[] = [
     
     // Level1 assets
     {id: "road", src:"../../Assets/images/road.png"},
+    {id: "desert", src:"../../Assets/images/desert.png"},
     {id: "player_car", src:"../../Assets/images/player_car.png"},
     {id: "red_car", src:"../../Assets/images/red_car.png"},
     {id: "blue_car", src:"../../Assets/images/blue_car.png"},
@@ -46,6 +48,13 @@ var assetData:objects.Asset[] = [
     {id: "level1ScoreBox", src:"../../Assets/images/level1ScoreBox.png"},
     {id: "level1LivesBox", src:"../../Assets/images/level1LivesBox.png"},
     {id: "level1TImerBox", src:"../../Assets/images/level1TImerBox.png"},
+    
+    {id: "camel", src:"../../Assets/images/camel.png"},
+    {id: "cactus", src:"../../Assets/images/cactus.png"},
+    {id: "water", src:"../../Assets/images/water_can.png"},
+
+
+    
     {id: "level1BackgroundMusic", src:"../../Assets/audio/level1BackgroundMusic.mp3"},
     {id: "carStartSound", src:"../../Assets/audio/carStartSound.mp3"},
     {id: "carCrashSound", src:"../../Assets/audio/carCrashSound.mp3"},

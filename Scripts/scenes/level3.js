@@ -22,12 +22,18 @@ var scenes;
             // scoreValue = 0;
             this._timeLapsed = 0;
             this._timeRemaining = 10;
-            // added road to the scene
-            this._road = new objects.Road();
-            this.addChild(this._road);
+            // added desert to the scene
+            this._desert = new objects.Desert();
+            this.addChild(this._desert);
             // added gas tank to the scene
-            this._gas = new objects.Gas();
-            this.addChild(this._gas);
+            this._water = new objects.Water();
+            this.addChild(this._water);
+            // added camel to the scene
+            // this._camel = new objects.Camel();
+            // this.addChild(this._camel);
+            // added camel to the scene
+            this._cactus = new objects.Cactus();
+            this.addChild(this._cactus);
             // Add red cars
             this._cars = new Array();
             for (var car = 0; car < this._carCount; car++) {
@@ -41,16 +47,16 @@ var scenes;
                 this.addChild(this._cars2[car]);
             }
             // Add green cars
-            this._cars3 = new Array();
+            this.cactus = new Array();
             for (var car = 0; car < this._carCount; car++) {
-                this._cars3[car] = new objects.Car3();
-                this.addChild(this._cars3[car]);
+                this.cactus[car] = new objects.Cactus();
+                this.addChild(this.cactus[car]);
             }
             // Add yellow cars
-            this._cars4 = new Array();
+            this._camel = new Array();
             for (var car = 0; car < this._carCount; car++) {
-                this._cars4[car] = new objects.Car4();
-                this.addChild(this._cars4[car]);
+                this._camel[car] = new objects.Camel();
+                this.addChild(this._camel[car]);
             }
             // added player to the scene
             this._player = new objects.Player();
@@ -95,9 +101,10 @@ var scenes;
                 }
                 this._timeRemaining--;
             }
-            // Constantly update road, gastank and player
-            this._road.update();
-            this._gas.update();
+            // Constantly update desert, water and player
+            this._desert.update();
+            this._water.update();
+            this._cactus.update();
             this._player.update();
             // Update red car
             this._cars.forEach(function (car) {
@@ -109,17 +116,17 @@ var scenes;
                 car2.update();
                 _this._collision3.check(car2);
             });
-            // Update green car
-            this._cars3.forEach(function (car3) {
-                car3.update();
-                _this._collision3.check(car3);
+            // Update cactus
+            this.cactus.forEach(function (cactus) {
+                cactus.update();
+                _this._collision3.check(cactus);
             });
-            // Update yellow car
-            this._cars4.forEach(function (car4) {
-                car4.update();
-                _this._collision3.check(car4);
+            // Update camel
+            this._camel.forEach(function (camel) {
+                camel.update();
+                _this._collision3.check(camel);
             });
-            this._collision3.check(this._gas);
+            this._collision3.check(this._water);
             this._updateScore();
         };
         /**
@@ -132,7 +139,7 @@ var scenes;
             this._livesLabel.text = "Lives: " + livesValue;
         };
         return Level3;
-    }(objects.Scene));
+    })(objects.Scene);
     scenes.Level3 = Level3;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=level3.js.map

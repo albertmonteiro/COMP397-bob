@@ -15,6 +15,12 @@
 /// <reference path="../objects/car2.ts"/>
 /// <reference path="../objects/car3.ts"/>
 /// <reference path="../objects/car4.ts"/>
+/// <reference path="../objects/water.ts"/>
+/// <reference path="../objects/camel.ts"/>
+/// <reference path="../objects/cactus.ts"/>
+/// <reference path="../objects/desert.ts"/>
+
+
 
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../managers/collision2.ts" />

@@ -33,8 +33,8 @@ module managers {
               the other object is less than the minimum distance */
             if (this.distance(startPoint, endPoint) < minimumDistance) {
                 if (!object.isColliding) {
-                    // check if it's a gas tank
-                    if (object.name === "gas") {
+                    // check if it's a water tank
+                    if (object.name === "water") {
                         // Play gastankSound
                         this._gastankSound = createjs.Sound.play("gastankSound");
                         scoreValue += 10; //award 10 points
@@ -42,7 +42,7 @@ module managers {
                     
                     // check if it's an enemy car
                     if (object.name === "red_car" || object.name === "blue_car"
-                        || object.name === "green_car" || object.name === "yellow_car") {
+                        || object.name === "cactus" || object.name === "camel") {
                         // Play carCrashSound
                         this._carCrashSound = createjs.Sound.play("carCrashSound");
                         livesValue--; // lose a life

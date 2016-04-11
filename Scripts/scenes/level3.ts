@@ -2,11 +2,10 @@
 module scenes {
     export class Level3 extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _road: objects.Road;
+        private _desert: objects.Desert;
         private _level1ScoreBox: createjs.Bitmap;
         private _level1LivesBox: createjs.Bitmap;
         private _clockBox: createjs.Bitmap;
-        private _gas: objects.Gas;
         private _carCount: number;
         private _player: objects.Player;
         private _collision3: managers.Collision3;
@@ -14,11 +13,15 @@ module scenes {
         private _livesLabel: objects.Label;
         private _cars: objects.Car[];
         private _cars2: objects.Car2[];
-        private _cars3: objects.Car3[];
-        private _cars4: objects.Car4[];
+        private cactus: objects.Cactus[];
+        private _camel: objects.Camel[];
         private _timeLapsed: number;
         private _timeRemaining: number;
         private _timeLabel: objects.Label;
+        private _water: objects.Water;
+        private _cactus: objects.Cactus;
+        
+
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -38,13 +41,21 @@ module scenes {
             this._timeLapsed = 0;
             this._timeRemaining = 10;
             
-            // added road to the scene
-            this._road = new objects.Road();
-            this.addChild(this._road);
+            // added desert to the scene
+            this._desert = new objects.Desert();
+            this.addChild(this._desert);
             
             // added gas tank to the scene
-            this._gas = new objects.Gas();
-            this.addChild(this._gas);
+           this._water = new objects.Water();
+           this.addChild(this._water);
+           
+           // added camel to the scene
+          // this._camel = new objects.Camel();
+          // this.addChild(this._camel);
+           
+           // added camel to the scene
+           this._cactus = new objects.Cactus();
+           this.addChild(this._cactus);
             
             // Add red cars
             this._cars = new Array<objects.Car>();
@@ -61,17 +72,17 @@ module scenes {
             }
             
             // Add green cars
-            this._cars3 = new Array<objects.Car3>();
+            this.cactus = new Array<objects.Cactus>();
             for (var car: number = 0; car < this._carCount; car++) {
-                this._cars3[car] = new objects.Car3();
-                this.addChild(this._cars3[car]);
+                this.cactus[car] = new objects.Cactus();
+                this.addChild(this.cactus[car]);
             }
             
             // Add yellow cars
-            this._cars4 = new Array<objects.Car4>();
+            this._camel = new Array<objects.Camel>();
             for (var car: number = 0; car < this._carCount; car++) {
-                this._cars4[car] = new objects.Car4();
-                this.addChild(this._cars4[car]);
+                this._camel[car] = new objects.Camel();
+                this.addChild(this._camel[car]);
             }
             
             // added player to the scene
@@ -139,9 +150,10 @@ module scenes {
                 this._timeRemaining--;
             }
             
-            // Constantly update road, gastank and player
-            this._road.update();
-            this._gas.update();
+            // Constantly update desert, water and player
+            this._desert.update();
+            this._water.update();
+            this._cactus.update();
             this._player.update();
            
             // Update red car
@@ -156,19 +168,19 @@ module scenes {
                 this._collision3.check(car2);
             });
             
-            // Update green car
-            this._cars3.forEach(car3 => {
-                car3.update();
-                this._collision3.check(car3);
+            // Update cactus
+            this.cactus.forEach(cactus => {
+                cactus.update();
+                this._collision3.check(cactus);
             });
             
-            // Update yellow car
-            this._cars4.forEach(car4 => {
-                car4.update();
-                this._collision3.check(car4);
+            // Update camel
+            this._camel.forEach(camel => {
+                camel.update();
+                this._collision3.check(camel);
             });
 
-            this._collision3.check(this._gas);
+            this._collision3.check(this._water);
 
             this._updateScore();
         }
