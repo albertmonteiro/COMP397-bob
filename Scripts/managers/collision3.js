@@ -30,9 +30,10 @@ var managers;
                         this._gastankSound = createjs.Sound.play("gastankSound");
                         scoreValue += 10; //award 10 points
                     }
-                    // check if it's an enemy 
-                    if (object.name === "red_car" || object.name === "snake"
-                        || object.name === "cactus" || object.name === "camel") {
+                    // check if it's an enemy car
+                    if (object.name === "snake" || object.name === "scorpian"
+                        || object.name === "cactus" || object.name === "camel"
+                        || object.name === "tornado") {
                         // Play carCrashSound
                         this._carCrashSound = createjs.Sound.play("carCrashSound");
                         livesValue--; // lose a life

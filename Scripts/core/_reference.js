@@ -23,6 +23,8 @@
 /// <reference path="../objects/cactus.ts"/>
 /// <reference path="../objects/desert.ts"/>
 /// <reference path="../objects/snake.ts"/>
+/// <reference path="../objects/scorpian.ts"/>
+/// <reference path="../objects/tornado.ts"/>
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../managers/collision2.ts" />
 /// <reference path="../managers/collision3.ts" />

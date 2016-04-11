@@ -16,60 +16,48 @@ var scenes;
         // Start Method ++++++++++++++++++++++++++++++++++++++
         Level3.prototype.start = function () {
             // Set initial values
-            this._carCount = 1;
+            this._tornadoCount = 1;
             // We do not set the livesValue and scoreValue again for Level3
-            // livesValue = 5;
-            // scoreValue = 0;
+            livesValue = 5;
+            scoreValue = 0;
             this._timeLapsed = 0;
             this._timeRemaining = 10;
             // added desert to the scene
             this._desert = new objects.Desert();
             this.addChild(this._desert);
-            // added gas tank to the scene
+            // added water tank to the scene
             this._water = new objects.Water();
             this.addChild(this._water);
-            // added camel to the scene
-            // this._camel = new objects.Camel();
-            // this.addChild(this._camel);
-            // added camel to the scene
+            // added cactus to the scene
             this._cactus = new objects.Cactus();
             this.addChild(this._cactus);
-            // Add red cars
-            this._cars = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this._cars[car] = new objects.BurningWheel();
-                this.addChild(this._cars[car]);
-            }
-            // Add blue cars
-            this._cars2 = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this._cars2[car] = new objects.BurningWheel2();
-                this.addChild(this._cars2[car]);
-            }
-            // Add green cars
-            this.cactus = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this.cactus[car] = new objects.Cactus();
-                this.addChild(this.cactus[car]);
-            }
-            // Add yellow cars
-            this._camel = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this._camel[car] = new objects.Camel();
-                this.addChild(this._camel[car]);
-            }
+            // added snake to the scene
+            this._snake = new objects.Snake();
+            this.addChild(this._snake);
+            // added scorpian to the scene
+            this._scorpian = new objects.Scorpian();
+            this.addChild(this._scorpian);
+            // added camel to the scene
+            this._camel = new objects.Camel();
+            this.addChild(this._camel);
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            // add the level1ScoreBox the scene
-            this._level1ScoreBox = new objects.Button("level2Box", 484, 5, false);
+            // add the level3ScoreBox the scene
+            this._level1ScoreBox = new objects.Button("level3Box", 500, 35, false);
             this.addChild(this._level1ScoreBox);
             // add the level1TImerBox the scene
             this._clockBox = new objects.Button("level1TImerBox", 530, 210, false);
             this.addChild(this._clockBox);
-            // add the level1LivesBox the scene
-            this._level1LivesBox = new objects.Button("level2Box", 483, 323, false);
+            // add the level3LivesBox the scene
+            this._level1LivesBox = new objects.Button("level3Box", 500, 355, false);
             this.addChild(this._level1LivesBox);
+            // Added Tornado
+            this._tornado = new Array();
+            for (var tornado = 0; tornado < this._tornadoCount; tornado++) {
+                this._tornado[tornado] = new objects.Tornado();
+                this.addChild(this._tornado[tornado]);
+            }
             // Add _scoreLabel
             this._scoreLabel = new objects.Label("Score: " + scoreValue, "14px Consolas", "#000000", 600, 70, false);
             this._scoreLabel.textAlign = "right";
@@ -101,32 +89,24 @@ var scenes;
                 }
                 this._timeRemaining--;
             }
+            // Update red car
+            this._tornado.forEach(function (tornado) {
+                tornado.update();
+                _this._collision3.check(tornado);
+            });
             // Constantly update desert, water and player
             this._desert.update();
             this._water.update();
             this._cactus.update();
             this._player.update();
-            // Update red car
-            this._cars.forEach(function (car) {
-                car.update();
-                _this._collision3.check(car);
-            });
-            // Update blue car
-            this._cars2.forEach(function (car2) {
-                car2.update();
-                _this._collision3.check(car2);
-            });
-            // Update cactus
-            this.cactus.forEach(function (cactus) {
-                cactus.update();
-                _this._collision3.check(cactus);
-            });
-            // Update camel
-            this._camel.forEach(function (camel) {
-                camel.update();
-                _this._collision3.check(camel);
-            });
+            this._snake.update();
+            this._scorpian.update();
+            this._camel.update();
             this._collision3.check(this._water);
+            this._collision3.check(this._camel);
+            this._collision3.check(this._cactus);
+            this._collision3.check(this._snake);
+            this._collision3.check(this._scorpian);
             this._updateScore();
         };
         /**
