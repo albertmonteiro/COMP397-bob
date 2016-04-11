@@ -62,13 +62,13 @@ var scenes;
             this._player = new objects.Player();
             this.addChild(this._player);
             // add the level1ScoreBox the scene
-            this._level1ScoreBox = new objects.Button("level1ScoreBox", 484, 5, false);
+            this._level1ScoreBox = new objects.Button("level2Box", 484, 5, false);
             this.addChild(this._level1ScoreBox);
             // add the level1TImerBox the scene
             this._clockBox = new objects.Button("level1TImerBox", 530, 210, false);
             this.addChild(this._clockBox);
             // add the level1LivesBox the scene
-            this._level1LivesBox = new objects.Button("level1LivesBox", 483, 323, false);
+            this._level1LivesBox = new objects.Button("level2Box", 483, 323, false);
             this.addChild(this._level1LivesBox);
             // Add _scoreLabel
             this._scoreLabel = new objects.Label("Score: " + scoreValue, "14px Consolas", "#000000", 600, 70, false);
@@ -139,7 +139,7 @@ var scenes;
             this._livesLabel.text = "Lives: " + livesValue;
         };
         return Level3;
-    }(objects.Scene));
+    })(objects.Scene);
     scenes.Level3 = Level3;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=level3.js.map

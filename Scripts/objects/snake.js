@@ -6,18 +6,18 @@ var __extends = (this && this.__extends) || function (d, b) {
 var objects;
 (function (objects) {
     // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
-    var Camel = (function (_super) {
-        __extends(Camel, _super);
+    var Snake = (function (_super) {
+        __extends(Snake, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Camel() {
-            _super.call(this, "camel");
+        function Snake() {
+            _super.call(this, "snake");
             this._speed.x = 5; //island speed
             this._reset(this._rightBounds + 100);
-            this.name = "camel";
+            this.name = "snake";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Camel.prototype._checkBounds = function (value) {
+        Snake.prototype._checkBounds = function (value) {
             // check to see if the top of the island 
             // is outside the viewport
             if (this.x <= value) {
@@ -25,7 +25,7 @@ var objects;
             }
         };
         // reset the ocean offscreen
-        Camel.prototype._reset = function (value) {
+        Snake.prototype._reset = function (value) {
             this.x = value;
             var temp = Math.floor((Math.random() * 4) + 1);
             switch (temp) {
@@ -45,13 +45,13 @@ var objects;
             // this.y = Math.floor(Math.random() * this._topBounds) + this._bottomBounds;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Camel.prototype.update = function () {
+        Snake.prototype.update = function () {
             // scroll the island 5 px per frame
             this.x -= this._speed.x;
             this._checkBounds(this._leftBounds - 100);
         };
-        return Camel;
+        return Snake;
     })(objects.GameObject);
-    objects.Camel = Camel;
+    objects.Snake = Snake;
 })(objects || (objects = {}));
-//# sourceMappingURL=camel.js.map
+//# sourceMappingURL=snake.js.map

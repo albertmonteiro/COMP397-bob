@@ -53,7 +53,7 @@ var managers;
             }
         }; // End of check method
         return Collision2;
-    }());
+    })();
     managers.Collision2 = Collision2;
 })(managers || (managers = {}));
 //# sourceMappingURL=collision2.js.map

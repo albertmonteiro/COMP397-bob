@@ -48,6 +48,8 @@ var assetData = [
     { id: "level1ScoreBox", src: "../../Assets/images/level1ScoreBox.png" },
     { id: "level1LivesBox", src: "../../Assets/images/level1LivesBox.png" },
     { id: "level1TImerBox", src: "../../Assets/images/level1TImerBox.png" },
+    { id: "level2Box", src: "../../Assets/images/level2Box.png" },
+    { id: "snake", src: "../../Assets/images/snake.png" },
     { id: "camel", src: "../../Assets/images/camel.png" },
     { id: "cactus", src: "../../Assets/images/cactus.png" },
     { id: "water", src: "../../Assets/images/water_can.png" },

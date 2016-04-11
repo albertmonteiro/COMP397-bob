@@ -1,15 +1,15 @@
 module objects {
     // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
-    export class Camel extends objects.GameObject {
+    export class Snake extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
-            super("camel");
+            super("snake");
             
            this._speed.x = 5; //island speed
            this._reset(this._rightBounds + 100);
-           this.name = "camel";
+           this.name = "snake";
         }
         
         // PRIVATE METHODS ++++++++++++++++++++++++++++

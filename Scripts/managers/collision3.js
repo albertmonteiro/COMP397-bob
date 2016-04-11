@@ -30,8 +30,8 @@ var managers;
                         this._gastankSound = createjs.Sound.play("gastankSound");
                         scoreValue += 10; //award 10 points
                     }
-                    // check if it's an enemy car
-                    if (object.name === "red_car" || object.name === "blue_car"
+                    // check if it's an enemy 
+                    if (object.name === "red_car" || object.name === "snake"
                         || object.name === "cactus" || object.name === "camel") {
                         // Play carCrashSound
                         this._carCrashSound = createjs.Sound.play("carCrashSound");
@@ -53,7 +53,7 @@ var managers;
             }
         }; // End of check method
         return Collision3;
-    }());
+    })();
     managers.Collision3 = Collision3;
 })(managers || (managers = {}));
 //# sourceMappingURL=collision3.js.map

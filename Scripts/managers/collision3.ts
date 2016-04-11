@@ -40,8 +40,8 @@ module managers {
                         scoreValue += 10; //award 10 points
                     }
                     
-                    // check if it's an enemy car
-                    if (object.name === "red_car" || object.name === "blue_car"
+                    // check if it's an enemy 
+                    if (object.name === "red_car" || object.name === "snake"
                         || object.name === "cactus" || object.name === "camel") {
                         // Play carCrashSound
                         this._carCrashSound = createjs.Sound.play("carCrashSound");

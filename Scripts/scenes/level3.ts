@@ -90,7 +90,7 @@ module scenes {
             this.addChild(this._player);
             
             // add the level1ScoreBox the scene
-            this._level1ScoreBox = new objects.Button("level1ScoreBox", 484, 5, false);
+            this._level1ScoreBox = new objects.Button("level2Box", 484, 5, false);
             this.addChild(this._level1ScoreBox);
             
             // add the level1TImerBox the scene
@@ -98,7 +98,7 @@ module scenes {
             this.addChild(this._clockBox);
             
             // add the level1LivesBox the scene
-            this._level1LivesBox = new objects.Button("level1LivesBox", 483, 323, false);
+            this._level1LivesBox = new objects.Button("level2Box", 483, 323, false);
             this.addChild(this._level1LivesBox);
             
             // Add _scoreLabel

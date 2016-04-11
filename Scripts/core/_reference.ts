@@ -19,6 +19,8 @@
 /// <reference path="../objects/camel.ts"/>
 /// <reference path="../objects/cactus.ts"/>
 /// <reference path="../objects/desert.ts"/>
+/// <reference path="../objects/snake.ts"/>
+
 
 
 
