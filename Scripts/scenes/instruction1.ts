@@ -28,6 +28,7 @@ module scenes {
             // this.addChild(this._menuLabel);
 
             // add the Back button to the MENU scene
+            //just
             this._backButton = new objects.Button(
                 "backButton",
                 config.Screen.CENTER_X,
