@@ -55,6 +55,10 @@ var assetData = [
     { id: "carStartSound", src: "../../Assets/audio/carStartSound.mp3" },
     { id: "carCrashSound", src: "../../Assets/audio/carCrashSound.mp3" },
     { id: "gastankSound", src: "../../Assets/audio/gastankSound.mp3" },
+    // Level2 assets
+    { id: "level2Road", src: "../../Assets/images/level2Road.png" },
+    { id: "wheel", src: "../../Assets/images/wheel.png" },
+    { id: "burningWheel", src: "../../Assets/images/burningWheel.png" },
 ];
 function preload() {
     assets = new createjs.LoadQueue();

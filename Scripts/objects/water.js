@@ -51,7 +51,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Water;
-    }(objects.GameObject));
+    })(objects.GameObject);
     objects.Water = Water;
 })(objects || (objects = {}));
 //# sourceMappingURL=water.js.map

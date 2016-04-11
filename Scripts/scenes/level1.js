@@ -131,7 +131,7 @@ var scenes;
             this._livesLabel.text = "Lives: " + livesValue;
         };
         return Level1;
-    }(objects.Scene));
+    })(objects.Scene);
     scenes.Level1 = Level1;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=level1.js.map

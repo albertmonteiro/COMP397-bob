@@ -67,6 +67,9 @@ var assetData:objects.Asset[] = [
     {id: "gastankSound", src:"../../Assets/audio/gastankSound.mp3"},
     
     // Level2 assets
+    {id: "level2Road", src:"../../Assets/images/level2Road.png"},
+    {id: "wheel", src:"../../Assets/images/wheel.png"},
+    {id: "burningWheel", src:"../../Assets/images/burningWheel.png"},
     
     // Level3 assets
     

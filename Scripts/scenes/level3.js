@@ -37,13 +37,13 @@ var scenes;
             // Add red cars
             this._cars = new Array();
             for (var car = 0; car < this._carCount; car++) {
-                this._cars[car] = new objects.Car();
+                this._cars[car] = new objects.BurningWheel();
                 this.addChild(this._cars[car]);
             }
             // Add blue cars
             this._cars2 = new Array();
             for (var car = 0; car < this._carCount; car++) {
-                this._cars2[car] = new objects.Car2();
+                this._cars2[car] = new objects.BurningWheel2();
                 this.addChild(this._cars2[car]);
             }
             // Add green cars
@@ -139,7 +139,7 @@ var scenes;
             this._livesLabel.text = "Lives: " + livesValue;
         };
         return Level3;
-    }(objects.Scene));
+    })(objects.Scene);
     scenes.Level3 = Level3;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=level3.js.map

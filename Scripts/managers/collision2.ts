@@ -34,14 +34,14 @@ module managers {
             if (this.distance(startPoint, endPoint) < minimumDistance) {
                 if (!object.isColliding) {
                     // check if it's a gas tank
-                    if (object.name === "gas") {
+                    if (object.name === "wheel") {
                         // Play gastankSound
                         this._gastankSound = createjs.Sound.play("gastankSound");
                         scoreValue += 10; //award 10 points
                     }
                     
                     // check if it's an enemy car
-                    if (object.name === "red_car" || object.name === "blue_car"
+                    if (object.name === "burningWheel" || object.name === "blue_car"
                         || object.name === "green_car" || object.name === "yellow_car") {
                         // Play carCrashSound
                         this._carCrashSound = createjs.Sound.play("carCrashSound");

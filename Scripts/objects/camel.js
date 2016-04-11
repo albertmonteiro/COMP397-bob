@@ -42,7 +42,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Camel;
-    }(objects.GameObject));
+    })(objects.GameObject);
     objects.Camel = Camel;
 })(objects || (objects = {}));
 //# sourceMappingURL=camel.js.map
