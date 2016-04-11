@@ -16,41 +16,41 @@ var scenes;
         // Start Method ++++++++++++++++++++++++++++++++++++++
         Level2.prototype.start = function () {
             // Set initial values
-            this._carCount = 1;
+            this._enemyCount = 1;
             // We do not set the livesValue and scoreValue again for Level2
             // livesValue = 5;
             // scoreValue = 0;
             this._timeLapsed = 0;
             this._timeRemaining = 10;
             // added road to the scene
-            this._road = new objects.Road();
-            this.addChild(this._road);
+            this._level2Road = new objects.Level2Road();
+            this.addChild(this._level2Road);
             // added gas tank to the scene
-            this._gas = new objects.Gas();
-            this.addChild(this._gas);
-            // Add red cars
-            this._cars = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this._cars[car] = new objects.Car();
-                this.addChild(this._cars[car]);
+            this._wheel = new objects.Wheel();
+            this.addChild(this._wheel);
+            // Add Burning Wheel
+            this._burningWheels = new Array();
+            for (var wheel = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels[wheel] = new objects.BurningWheel();
+                this.addChild(this._burningWheels[wheel]);
             }
-            // Add blue cars
-            this._cars2 = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this._cars2[car] = new objects.Car2();
-                this.addChild(this._cars2[car]);
+            // Add Burning Wheel
+            this._burningWheels2 = new Array();
+            for (var wheel = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels2[wheel] = new objects.BurningWheel2();
+                this.addChild(this._burningWheels2[wheel]);
             }
-            // Add green cars
-            this._cars3 = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this._cars3[car] = new objects.Car3();
-                this.addChild(this._cars3[car]);
+            // Add Burning Wheel
+            this._burningWheels3 = new Array();
+            for (var wheel = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels3[wheel] = new objects.BurningWheel3();
+                this.addChild(this._burningWheels3[wheel]);
             }
-            // Add yellow cars
-            this._cars4 = new Array();
-            for (var car = 0; car < this._carCount; car++) {
-                this._cars4[car] = new objects.Car4();
-                this.addChild(this._cars4[car]);
+            // Add Burning Wheel
+            this._burningWheels4 = new Array();
+            for (var wheel = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels4[wheel] = new objects.BurningWheel4();
+                this.addChild(this._burningWheels4[wheel]);
             }
             // added player to the scene
             this._player = new objects.Player();
@@ -96,30 +96,30 @@ var scenes;
                 this._timeRemaining--;
             }
             // Constantly update road, gastank and player
-            this._road.update();
-            this._gas.update();
+            this._level2Road.update();
+            this._wheel.update();
             this._player.update();
             // Update red car
-            this._cars.forEach(function (car) {
-                car.update();
-                _this._collision2.check(car);
+            this._burningWheels.forEach(function (burningWheel) {
+                burningWheel.update();
+                _this._collision2.check(burningWheel);
             });
             // Update blue car
-            this._cars2.forEach(function (car2) {
-                car2.update();
-                _this._collision2.check(car2);
+            this._burningWheels2.forEach(function (burningWheel2) {
+                burningWheel2.update();
+                _this._collision2.check(burningWheel2);
             });
             // Update green car
-            this._cars3.forEach(function (car3) {
-                car3.update();
-                _this._collision2.check(car3);
+            this._burningWheels3.forEach(function (burningWheel3) {
+                burningWheel3.update();
+                _this._collision2.check(burningWheel3);
             });
             // Update yellow car
-            this._cars4.forEach(function (car4) {
-                car4.update();
-                _this._collision2.check(car4);
+            this._burningWheels4.forEach(function (burningWheel4) {
+                burningWheel4.update();
+                _this._collision2.check(burningWheel4);
             });
-            this._collision2.check(this._gas);
+            this._collision2.check(this._wheel);
             this._updateScore();
         };
         /**

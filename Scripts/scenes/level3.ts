@@ -11,8 +11,8 @@ module scenes {
         private _collision3: managers.Collision3;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
-        private _cars: objects.Car[];
-        private _cars2: objects.Car2[];
+        private _cars: objects.BurningWheel[];
+        private _cars2: objects.BurningWheel2[];
         private cactus: objects.Cactus[];
         private _camel: objects.Camel[];
         private _timeLapsed: number;
@@ -58,16 +58,16 @@ module scenes {
            this.addChild(this._cactus);
             
             // Add red cars
-            this._cars = new Array<objects.Car>();
+            this._cars = new Array<objects.BurningWheel>();
             for (var car: number = 0; car < this._carCount; car++) {
-                this._cars[car] = new objects.Car();
+                this._cars[car] = new objects.BurningWheel();
                 this.addChild(this._cars[car]);
             }
             
             // Add blue cars
-            this._cars2 = new Array<objects.Car2>();
+            this._cars2 = new Array<objects.BurningWheel2>();
             for (var car: number = 0; car < this._carCount; car++) {
-                this._cars2[car] = new objects.Car2();
+                this._cars2[car] = new objects.BurningWheel2();
                 this.addChild(this._cars2[car]);
             }
             

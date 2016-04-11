@@ -10,11 +10,17 @@
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/player.ts" />
 /// <reference path="../objects/road.ts" />
+/// <reference path="../objects/level2Road.ts" />
 /// <reference path="../objects/gas.ts"/>
 /// <reference path="../objects/car.ts"/>
 /// <reference path="../objects/car2.ts"/>
 /// <reference path="../objects/car3.ts"/>
 /// <reference path="../objects/car4.ts"/>
+/// <reference path="../objects/wheel.ts"/>
+/// <reference path="../objects/burningWheel.ts"/>
+/// <reference path="../objects/burningWheel2.ts"/>
+/// <reference path="../objects/burningWheel3.ts"/>
+/// <reference path="../objects/burningWheel4.ts"/>
 /// <reference path="../objects/water.ts"/>
 /// <reference path="../objects/camel.ts"/>
 /// <reference path="../objects/cactus.ts"/>

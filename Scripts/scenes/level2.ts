@@ -2,20 +2,20 @@
 module scenes {
     export class Level2 extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _road: objects.Road;
+        private _level2Road: objects.Level2Road;
         private _level1ScoreBox: createjs.Bitmap;
         private _level1LivesBox: createjs.Bitmap;
         private _clockBox: createjs.Bitmap;
-        private _gas: objects.Gas;
-        private _carCount: number;
+        private _wheel: objects.Wheel;
+        private _enemyCount: number;
         private _player: objects.Player;
         private _collision2: managers.Collision2;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
-        private _cars: objects.Car[];
-        private _cars2: objects.Car2[];
-        private _cars3: objects.Car3[];
-        private _cars4: objects.Car4[];
+        private _burningWheels: objects.BurningWheel[];
+        private _burningWheels2: objects.BurningWheel2[];
+        private _burningWheels3: objects.BurningWheel3[];
+        private _burningWheels4: objects.BurningWheel4[];
         private _timeLapsed: number;
         private _timeRemaining: number;
         private _timeLabel: objects.Label;
@@ -31,7 +31,7 @@ module scenes {
         // Start Method ++++++++++++++++++++++++++++++++++++++
         public start(): void {
             // Set initial values
-            this._carCount = 1;
+            this._enemyCount = 1;
             // We do not set the livesValue and scoreValue again for Level2
             // livesValue = 5;
             // scoreValue = 0;
@@ -39,39 +39,39 @@ module scenes {
             this._timeRemaining = 10;
             
             // added road to the scene
-            this._road = new objects.Road();
-            this.addChild(this._road);
+            this._level2Road = new objects.Level2Road();
+            this.addChild(this._level2Road);
             
             // added gas tank to the scene
-            this._gas = new objects.Gas();
-            this.addChild(this._gas);
+            this._wheel = new objects.Wheel();
+            this.addChild(this._wheel);
             
-            // Add red cars
-            this._cars = new Array<objects.Car>();
-            for (var car: number = 0; car < this._carCount; car++) {
-                this._cars[car] = new objects.Car();
-                this.addChild(this._cars[car]);
+            // Add Burning Wheel
+            this._burningWheels = new Array<objects.BurningWheel>();
+            for (var wheel: number = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels[wheel] = new objects.BurningWheel();
+                this.addChild(this._burningWheels[wheel]);
             }
             
-            // Add blue cars
-            this._cars2 = new Array<objects.Car2>();
-            for (var car: number = 0; car < this._carCount; car++) {
-                this._cars2[car] = new objects.Car2();
-                this.addChild(this._cars2[car]);
+            // Add Burning Wheel
+            this._burningWheels2 = new Array<objects.BurningWheel2>();
+            for (var wheel: number = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels2[wheel] = new objects.BurningWheel2();
+                this.addChild(this._burningWheels2[wheel]);
             }
             
-            // Add green cars
-            this._cars3 = new Array<objects.Car3>();
-            for (var car: number = 0; car < this._carCount; car++) {
-                this._cars3[car] = new objects.Car3();
-                this.addChild(this._cars3[car]);
+            // Add Burning Wheel
+            this._burningWheels3 = new Array<objects.BurningWheel3>();
+            for (var wheel: number = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels3[wheel] = new objects.BurningWheel3();
+                this.addChild(this._burningWheels3[wheel]);
             }
             
-            // Add yellow cars
-            this._cars4 = new Array<objects.Car4>();
-            for (var car: number = 0; car < this._carCount; car++) {
-                this._cars4[car] = new objects.Car4();
-                this.addChild(this._cars4[car]);
+            // Add Burning Wheel
+            this._burningWheels4 = new Array<objects.BurningWheel4>();
+            for (var wheel: number = 0; wheel < this._enemyCount; wheel++) {
+                this._burningWheels4[wheel] = new objects.BurningWheel4();
+                this.addChild(this._burningWheels4[wheel]);
             }
             
             // added player to the scene
@@ -140,35 +140,35 @@ module scenes {
             }
             
             // Constantly update road, gastank and player
-            this._road.update();
-            this._gas.update();
+            this._level2Road.update();
+            this._wheel.update();
             this._player.update();
            
             // Update red car
-            this._cars.forEach(car => {
-                car.update();
-                this._collision2.check(car);
+            this._burningWheels.forEach(burningWheel => {
+                burningWheel.update();
+                this._collision2.check(burningWheel);
             });
             
             // Update blue car
-            this._cars2.forEach(car2 => {
-                car2.update();
-                this._collision2.check(car2);
+            this._burningWheels2.forEach(burningWheel2 => {
+                burningWheel2.update();
+                this._collision2.check(burningWheel2);
             });
             
             // Update green car
-            this._cars3.forEach(car3 => {
-                car3.update();
-                this._collision2.check(car3);
+            this._burningWheels3.forEach(burningWheel3 => {
+                burningWheel3.update();
+                this._collision2.check(burningWheel3);
             });
             
             // Update yellow car
-            this._cars4.forEach(car4 => {
-                car4.update();
-                this._collision2.check(car4);
+            this._burningWheels4.forEach(burningWheel4 => {
+                burningWheel4.update();
+                this._collision2.check(burningWheel4);
             });
 
-            this._collision2.check(this._gas);
+            this._collision2.check(this._wheel);
 
             this._updateScore();
         }
