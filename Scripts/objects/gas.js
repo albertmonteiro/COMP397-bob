@@ -51,7 +51,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Gas;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Gas = Gas;
 })(objects || (objects = {}));
 //# sourceMappingURL=gas.js.map

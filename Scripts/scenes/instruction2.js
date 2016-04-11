@@ -24,8 +24,12 @@ var scenes;
             // add the Back button to the MENU scene
             this._backButton = new objects.Button("startButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150, true);
             this.addChild(this._backButton);
-            // Start Button event listener
+            // add the Exit button to the MENU scene
+            this._exitButton = new objects.Button("exitButton", config.Screen.CENTER_X + 340, config.Screen.CENTER_Y - 210, true);
+            this.addChild(this._exitButton);
+            // Button event listeners
             this._backButton.on("click", this._backButtonClick, this);
+            this._exitButton.on("click", this._exitButtonClick, this);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -36,8 +40,14 @@ var scenes;
             scene = config.Scene.LEVEL2;
             changeScene();
         };
+        // Exit button click event handler
+        Instruction2.prototype._exitButtonClick = function (event) {
+            // Switch to the THANKYOU Scene
+            scene = config.Scene.THANKYOU;
+            changeScene();
+        };
         return Instruction2;
-    })(objects.Scene);
+    }(objects.Scene));
     scenes.Instruction2 = Instruction2;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=instruction2.js.map

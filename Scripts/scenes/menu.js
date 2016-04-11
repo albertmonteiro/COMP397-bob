@@ -19,14 +19,17 @@ var scenes;
             this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
             this.addChild(this._backgroundImage);
             //Add Menu Label
-            this._menuLabel = new objects.Label("BURNING TIRES!", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200, true);
+            this._menuLabel = new objects.Label("BURNING TIRES!", "60px Algerian", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 120, true);
             this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("startButton", config.Screen.CENTER_X + 240, config.Screen.CENTER_Y + 80, true);
+            this._startButton = new objects.Button("startButton", config.Screen.CENTER_X + 230, config.Screen.CENTER_Y + 120, true);
             this.addChild(this._startButton);
             // add the Instruction button to the MENU scene
             this._instructionButton = new objects.Button("instructionButton", config.Screen.CENTER_X + 230, config.Screen.CENTER_Y + 200, true);
             this.addChild(this._instructionButton);
+            // add the Exit button to the MENU scene
+            this._exitButton = new objects.Button("exitButton", config.Screen.CENTER_X + 340, config.Screen.CENTER_Y - 210, true);
+            this.addChild(this._exitButton);
             // add the LEVEL1 button to the MENU scene
             this._level1Button = new objects.Button("level1", config.Screen.CENTER_X - 160, config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level1Button);
@@ -39,6 +42,7 @@ var scenes;
             // Button event listeners
             this._startButton.on("click", this._startButtonClick, this);
             this._instructionButton.on("click", this._instructionButtonClick, this);
+            this._exitButton.on("click", this._exitButtonClick, this);
             this._level1Button.on("click", this._level1ButtonClick, this);
             this._level2Button.on("click", this._level2ButtonClick, this);
             this._level3Button.on("click", this._level3ButtonClick, this);
@@ -60,6 +64,12 @@ var scenes;
             scene = config.Scene.INSTRUCTION1;
             changeScene();
         };
+        // Exit button click event handler
+        Menu.prototype._exitButtonClick = function (event) {
+            // Switch to the THANKYOU Scene
+            scene = config.Scene.THANKYOU;
+            changeScene();
+        };
         // LEVEL1 Button click event handler
         Menu.prototype._level1ButtonClick = function (event) {
             // Switch to the LEVEL1 Scene
@@ -79,7 +89,7 @@ var scenes;
             changeScene();
         };
         return Menu;
-    })(objects.Scene);
+    }(objects.Scene));
     scenes.Menu = Menu;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=menu.js.map

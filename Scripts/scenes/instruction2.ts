@@ -2,9 +2,10 @@
 module scenes {
     export class Instruction2 extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
+        private _backgroundImage: createjs.Bitmap;
         private _menuLabel: objects.Label;
         private _backButton: objects.Button;
-        private _backgroundImage: createjs.Bitmap;
+        private _exitButton: objects.Button;
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -32,9 +33,17 @@ module scenes {
                 config.Screen.CENTER_X,
                 config.Screen.CENTER_Y + 150, true);
             this.addChild(this._backButton);
+            
+            // add the Exit button to the MENU scene
+            this._exitButton = new objects.Button(
+                "exitButton",
+                config.Screen.CENTER_X + 340,
+                config.Screen.CENTER_Y - 210, true);
+            this.addChild(this._exitButton);
 
-            // Start Button event listener
+            // Button event listeners
             this._backButton.on("click", this._backButtonClick, this);
+            this._exitButton.on("click", this._exitButtonClick, this);
 
             // add this scene to the global stage container
             stage.addChild(this);
@@ -46,6 +55,13 @@ module scenes {
         private _backButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEVEL2 Scene
             scene = config.Scene.LEVEL2;
+            changeScene();
+        }
+        
+        // Exit button click event handler
+        private _exitButtonClick(event: createjs.MouseEvent) {
+            // Switch to the THANKYOU Scene
+            scene = config.Scene.THANKYOU;
             changeScene();
         }
 

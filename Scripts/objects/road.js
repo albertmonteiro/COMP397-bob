@@ -34,7 +34,7 @@ var objects;
             this._checkBounds(-640);
         };
         return Road;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Road = Road;
 })(objects || (objects = {}));
 //# sourceMappingURL=road.js.map

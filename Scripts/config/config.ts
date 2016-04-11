@@ -11,6 +11,7 @@
         public static LEVEL3: number = 6;
         public static END: number = 7;
         public static WIN: number = 8;
+        public static THANKYOU: number = 9;
     }
     
     

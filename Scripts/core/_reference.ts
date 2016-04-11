@@ -35,3 +35,4 @@
 /// <reference path="../scenes/level3.ts" />
 /// <reference path="../scenes/end.ts" />
 /// <reference path="../scenes/win.ts" />
+/// <reference path="../scenes/thankYou.ts" />

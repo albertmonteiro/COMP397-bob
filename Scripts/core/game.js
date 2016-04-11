@@ -19,13 +19,19 @@ var level2;
 var level3;
 var end;
 var win;
+var thankYou;
 var assetData = [
     // Add your Assets here
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "menuBackground3", src: "../../Assets/images/menuBackground3.png" },
+    { id: "instruction1Background", src: "../../Assets/images/instruction1Background.png" },
+    { id: "endSceneBackground", src: "../../Assets/images/endSceneBackground.png" },
+    { id: "winSceneBackground", src: "../../Assets/images/winSceneBackground.png" },
+    { id: "thankYouBackground", src: "../../Assets/images/thankYouBackground.png" },
     { id: "startButton", src: "../../Assets/images/startButton.png" },
     { id: "instructionButton", src: "../../Assets/images/instructionButton.png" },
     { id: "backButton", src: "../../Assets/images/backButton.png" },
+    { id: "exitButton", src: "../../Assets/images/exitButton.png" },
     { id: "level1", src: "../../Assets/images/level1.png" },
     { id: "level2", src: "../../Assets/images/level2.png" },
     { id: "level3", src: "../../Assets/images/level3.png" },
@@ -159,6 +165,13 @@ function changeScene() {
             win = new scenes.Win();
             currentScene = win;
             console.log("Starting WIN Scene");
+            break;
+        case config.Scene.THANKYOU:
+            // show the THANKYOU scene
+            stage.removeAllChildren();
+            thankYou = new scenes.ThankYou();
+            currentScene = thankYou;
+            console.log("Starting THANKYOU Scene");
             break;
     }
     console.log(currentScene.numChildren);

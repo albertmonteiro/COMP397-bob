@@ -16,28 +16,41 @@ var scenes;
         // Start Method
         Instruction1.prototype.start = function () {
             // add background to menu page
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("instruction1Background"));
             this.addChild(this._backgroundImage);
             //Add Menu Label
-            this._menuLabel = new objects.Label("INSTRUCTIONS", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._menuLabel);
+            // this._menuLabel = new objects.Label(
+            //     "INSTRUCTIONS", "60px Consolas",
+            //     "#ffff00",
+            //     config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            // this.addChild(this._menuLabel);
             // add the Back button to the MENU scene
             this._backButton = new objects.Button("backButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150, true);
             this.addChild(this._backButton);
-            // Start Button event listener
+            // add the Exit button to the MENU scene
+            this._exitButton = new objects.Button("exitButton", config.Screen.CENTER_X + 340, config.Screen.CENTER_Y - 210, true);
+            this.addChild(this._exitButton);
+            // Button event listeners
             this._backButton.on("click", this._backButtonClick, this);
+            this._exitButton.on("click", this._exitButtonClick, this);
             // add this scene to the global stage container
             stage.addChild(this);
         };
         //EVENT HANDLERS ++++++++++++++++++++
-        // Button click event handler
+        // Back Button click event handler
         Instruction1.prototype._backButtonClick = function (event) {
             // Switch to the MENU Scene
             scene = config.Scene.MENU;
             changeScene();
         };
+        // Exit button click event handler
+        Instruction1.prototype._exitButtonClick = function (event) {
+            // Switch to the THANKYOU Scene
+            scene = config.Scene.THANKYOU;
+            changeScene();
+        };
         return Instruction1;
-    })(objects.Scene);
+    }(objects.Scene));
     scenes.Instruction1 = Instruction1;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=instruction1.js.map

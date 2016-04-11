@@ -51,7 +51,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Cactus;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Cactus = Cactus;
 })(objects || (objects = {}));
 //# sourceMappingURL=cactus.js.map
