@@ -7,9 +7,9 @@ module scenes {
         private _startButton: objects.Button;
         private _instructionButton: objects.Button;
         private _exitButton: objects.Button;
-        private _level1Button: objects.Button;
-        private _level2Button: objects.Button;
-        private _level3Button: objects.Button;
+       // private _level1Button: objects.Button;
+       // private _level2Button: objects.Button;
+       // private _level3Button: objects.Button;
         private _carStartSound: createjs.AbstractSoundInstance;
         
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -53,7 +53,7 @@ module scenes {
                 config.Screen.CENTER_Y - 210, true);
             this.addChild(this._exitButton);
             
-            // add the LEVEL1 button to the MENU scene
+            /* add the LEVEL1 button to the MENU scene
             this._level1Button = new objects.Button(
                 "level1",
                 config.Screen.CENTER_X - 160,
@@ -73,15 +73,18 @@ module scenes {
                 config.Screen.CENTER_X + 160,
                 config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level3Button);
+            */
             
             // Button event listeners
             this._startButton.on("click", this._startButtonClick, this);
             this._instructionButton.on("click", this._instructionButtonClick, this);
             this._exitButton.on("click", this._exitButtonClick, this);
+            
+            /*
             this._level1Button.on("click", this._level1ButtonClick, this);
             this._level2Button.on("click", this._level2ButtonClick, this);
             this._level3Button.on("click", this._level3ButtonClick, this);
-            
+            */
             
             // add this scene to the global stage container
             stage.addChild(this);
@@ -112,7 +115,7 @@ module scenes {
             changeScene();
         }
         
-        // LEVEL1 Button click event handler
+        /* LEVEL1 Button click event handler
         private _level1ButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEVEL1 Scene
             scene = config.Scene.LEVEL1;
@@ -132,6 +135,7 @@ module scenes {
             scene = config.Scene.INSTRUCTION3;
             changeScene();
         }
+        */
 
     }
 }

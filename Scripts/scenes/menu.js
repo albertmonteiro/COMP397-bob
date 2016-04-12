@@ -30,22 +30,36 @@ var scenes;
             // add the Exit button to the MENU scene
             this._exitButton = new objects.Button("exitButton", config.Screen.CENTER_X + 340, config.Screen.CENTER_Y - 210, true);
             this.addChild(this._exitButton);
-            // add the LEVEL1 button to the MENU scene
-            this._level1Button = new objects.Button("level1", config.Screen.CENTER_X - 160, config.Screen.CENTER_Y + 200, true);
+            /* add the LEVEL1 button to the MENU scene
+            this._level1Button = new objects.Button(
+                "level1",
+                config.Screen.CENTER_X - 160,
+                config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level1Button);
+            
             // add the LEVEL2 button to the MENU scene
-            this._level2Button = new objects.Button("level2", config.Screen.CENTER_X, config.Screen.CENTER_Y + 200, true);
+            this._level2Button = new objects.Button(
+                "level2",
+                config.Screen.CENTER_X,
+                config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level2Button);
+            
             // add the LEVEL3 button to the MENU scene
-            this._level3Button = new objects.Button("level3", config.Screen.CENTER_X + 160, config.Screen.CENTER_Y + 200, true);
+            this._level3Button = new objects.Button(
+                "level3",
+                config.Screen.CENTER_X + 160,
+                config.Screen.CENTER_Y + 200, true);
             this.addChild(this._level3Button);
+            */
             // Button event listeners
             this._startButton.on("click", this._startButtonClick, this);
             this._instructionButton.on("click", this._instructionButtonClick, this);
             this._exitButton.on("click", this._exitButtonClick, this);
+            /*
             this._level1Button.on("click", this._level1ButtonClick, this);
             this._level2Button.on("click", this._level2ButtonClick, this);
             this._level3Button.on("click", this._level3ButtonClick, this);
+            */
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -68,24 +82,6 @@ var scenes;
         Menu.prototype._exitButtonClick = function (event) {
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
-            changeScene();
-        };
-        // LEVEL1 Button click event handler
-        Menu.prototype._level1ButtonClick = function (event) {
-            // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
-            changeScene();
-        };
-        // LEVEL2 Button click event handler
-        Menu.prototype._level2ButtonClick = function (event) {
-            // Switch to the LEVEL2 Scene
-            scene = config.Scene.INSTRUCTION2;
-            changeScene();
-        };
-        // LEVEL3 Button click event handler
-        Menu.prototype._level3ButtonClick = function (event) {
-            // Switch to the LEVEL3 Scene
-            scene = config.Scene.INSTRUCTION3;
             changeScene();
         };
         return Menu;
