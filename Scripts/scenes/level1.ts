@@ -92,7 +92,7 @@ module scenes {
             // Add _scoreLabel
             this._scoreLabel = new objects.Label(
                 "Score: " + scoreValue,
-                "14px Consolas",
+                "14px Algerian",
                 "#000000",
                 600, 70, false);
             this._scoreLabel.textAlign = "right";
@@ -110,7 +110,7 @@ module scenes {
             // Add _livesLabel
             this._livesLabel = new objects.Label(
                 "Lives: " + livesValue,
-                "14px Consolas",
+                "14px Algerian",
                 "#000000",
                 585, 390, false);
             this._livesLabel.textAlign = "right";

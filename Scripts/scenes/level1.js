@@ -64,7 +64,7 @@ var scenes;
             this._level1LivesBox = new objects.Button("level1LivesBox", 483, 323, false);
             this.addChild(this._level1LivesBox);
             // Add _scoreLabel
-            this._scoreLabel = new objects.Label("Score: " + scoreValue, "14px Consolas", "#000000", 600, 70, false);
+            this._scoreLabel = new objects.Label("Score: " + scoreValue, "14px Algerian", "#000000", 600, 70, false);
             this._scoreLabel.textAlign = "right";
             this.addChild(this._scoreLabel);
             // Add _timeLabel
@@ -72,7 +72,7 @@ var scenes;
             this._timeLabel.textAlign = "right";
             this.addChild(this._timeLabel);
             // Add _livesLabel
-            this._livesLabel = new objects.Label("Lives: " + livesValue, "14px Consolas", "#000000", 585, 390, false);
+            this._livesLabel = new objects.Label("Lives: " + livesValue, "14px Algerian", "#000000", 585, 390, false);
             this._livesLabel.textAlign = "right";
             this.addChild(this._livesLabel);
             // added collision manager to the scene
