@@ -52,7 +52,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Tornado;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Tornado = Tornado;
 })(objects || (objects = {}));
 //# sourceMappingURL=tornado.js.map

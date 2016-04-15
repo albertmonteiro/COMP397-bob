@@ -35,6 +35,7 @@ module managers {
                 if (!object.isColliding) {
                     // check if it's a gas tank
                     if (object.name === "wheel") {
+                        object.visible = false;
                         // Play gastankSound
                         this._gastankSound = createjs.Sound.play("gastankSound");
                         scoreValue += 10; //award 10 points

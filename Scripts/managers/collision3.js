@@ -26,6 +26,7 @@ var managers;
                 if (!object.isColliding) {
                     // check if it's a water tank
                     if (object.name === "water") {
+                        object.visible = false;
                         // Play gastankSound
                         this._gastankSound = createjs.Sound.play("gastankSound");
                         scoreValue += 10; //award 10 points
@@ -54,7 +55,7 @@ var managers;
             }
         }; // End of check method
         return Collision3;
-    })();
+    }());
     managers.Collision3 = Collision3;
 })(managers || (managers = {}));
 //# sourceMappingURL=collision3.js.map

@@ -34,7 +34,7 @@ var objects;
             this._checkBounds(-640);
         };
         return Desert;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Desert = Desert;
 })(objects || (objects = {}));
 //# sourceMappingURL=desert.js.map

@@ -26,8 +26,9 @@ var objects;
                 this._reset(this._rightBounds + temp);
             }
         };
-        // reset the car offscreen
+        // reset the wheel offscreen
         Wheel.prototype._reset = function (value) {
+            this.visible = true;
             // Generate random speed for car
             this._speed.x = Math.floor((Math.random() * 8) + 6);
             this.x = value;
@@ -52,7 +53,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Wheel;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Wheel = Wheel;
 })(objects || (objects = {}));
 //# sourceMappingURL=wheel.js.map

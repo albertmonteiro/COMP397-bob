@@ -24,8 +24,9 @@ var objects;
                 this._reset(this._rightBounds + 100);
             }
         };
-        // reset the ocean offscreen
+        // reset the gas can offscreen
         Gas.prototype._reset = function (value) {
+            this.visible = true;
             this.x = value;
             var temp = Math.floor((Math.random() * 4) + 1);
             switch (temp) {
@@ -51,7 +52,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Gas;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Gas = Gas;
 })(objects || (objects = {}));
 //# sourceMappingURL=gas.js.map

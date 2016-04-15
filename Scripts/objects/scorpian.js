@@ -51,7 +51,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Scorpian;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Scorpian = Scorpian;
 })(objects || (objects = {}));
 //# sourceMappingURL=scorpian.js.map

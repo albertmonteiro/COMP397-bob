@@ -24,8 +24,9 @@ var objects;
                 this._reset(this._rightBounds + 100);
             }
         };
-        // reset the ocean offscreen
+        // reset the water tank offscreen
         Water.prototype._reset = function (value) {
+            this.visible = true;
             this.x = value;
             var temp = Math.floor((Math.random() * 4) + 1);
             switch (temp) {
@@ -51,7 +52,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Water;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Water = Water;
 })(objects || (objects = {}));
 //# sourceMappingURL=water.js.map

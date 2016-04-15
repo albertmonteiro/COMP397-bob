@@ -52,7 +52,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return Car;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Car = Car;
 })(objects || (objects = {}));
 //# sourceMappingURL=car.js.map

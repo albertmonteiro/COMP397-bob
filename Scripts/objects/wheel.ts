@@ -23,8 +23,9 @@ module objects {
             }
         }
         
-        // reset the car offscreen
+        // reset the wheel offscreen
         protected _reset(value: number): void {
+            this.visible = true;    
             // Generate random speed for car
             this._speed.x = Math.floor((Math.random() * 8) + 6);
             this.x = value;

@@ -52,7 +52,7 @@ var objects;
             this._checkBounds(this._leftBounds - 100);
         };
         return BurningWheel;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.BurningWheel = BurningWheel;
 })(objects || (objects = {}));
 //# sourceMappingURL=burningWheel.js.map

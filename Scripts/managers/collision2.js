@@ -26,6 +26,7 @@ var managers;
                 if (!object.isColliding) {
                     // check if it's a gas tank
                     if (object.name === "wheel") {
+                        object.visible = false;
                         // Play gastankSound
                         this._gastankSound = createjs.Sound.play("gastankSound");
                         scoreValue += 10; //award 10 points
@@ -53,7 +54,7 @@ var managers;
             }
         }; // End of check method
         return Collision2;
-    })();
+    }());
     managers.Collision2 = Collision2;
 })(managers || (managers = {}));
 //# sourceMappingURL=collision2.js.map

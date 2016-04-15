@@ -34,7 +34,7 @@ var objects;
             this._checkBounds(-640);
         };
         return Level2Road;
-    })(objects.GameObject);
+    }(objects.GameObject));
     objects.Level2Road = Level2Road;
 })(objects || (objects = {}));
 //# sourceMappingURL=level2Road.js.map

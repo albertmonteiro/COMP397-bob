@@ -21,6 +21,7 @@ var objects;
             this.level1BackgroundMusic = createjs.Sound.play("level1BackgroundMusic");
             // Loop engine sound forever
             this.level1BackgroundMusic.loop = -1;
+            this._oldY = 0;
         }
         // PRIVATE METHODS
         Player.prototype._checkBounds = function () {
@@ -31,13 +32,25 @@ var objects;
                 this.y = this._bottomBounds;
             }
         };
+        Player.prototype._rotatePlayer = function () {
+            if (this._oldY < this.y) {
+                this.rotation = 10;
+            }
+            else if (this._oldY > this.y) {
+                this.rotation = -10;
+            }
+            else
+                this.rotation = 0;
+            this._oldY = this.y;
+        };
         // PUBLIC METHODS
         Player.prototype.update = function () {
             this.y = stage.mouseY;
             this._checkBounds();
+            this._rotatePlayer();
         };
         return Player;
-    })(createjs.Bitmap);
+    }(createjs.Bitmap));
     objects.Player = Player;
 })(objects || (objects = {}));
 //# sourceMappingURL=player.js.map

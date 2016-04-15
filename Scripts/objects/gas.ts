@@ -21,8 +21,9 @@ module objects {
             }
         }
         
-        // reset the ocean offscreen
-        protected _reset(value:number):void {          
+        // reset the gas can offscreen
+        protected _reset(value:number):void {
+            this.visible = true;    
             this.x = value;
             var temp = Math.floor((Math.random() * 4) + 1);
             switch (temp) {

@@ -40,7 +40,7 @@ var scenes;
             changeScene();
         };
         return ThankYou;
-    })(objects.Scene);
+    }(objects.Scene));
     scenes.ThankYou = ThankYou;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=thankYou.js.map

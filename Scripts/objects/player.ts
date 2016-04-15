@@ -4,6 +4,7 @@ module objects {
         // PRIVATE INSTANCE VARIABLES
         private _topBounds: number;
         private _bottomBounds: number;
+        private _oldY: number;
 
         // PUBLIC INSTANCE VARIABLES
         public width: number;
@@ -27,6 +28,8 @@ module objects {
             this.level1BackgroundMusic = createjs.Sound.play("level1BackgroundMusic");
             // Loop engine sound forever
             this.level1BackgroundMusic.loop = -1;
+            
+            this._oldY = 0;
         }
 
         // PRIVATE METHODS
@@ -39,12 +42,23 @@ module objects {
                 this.y = this._bottomBounds;
             }
         }
-
-
+        
+        private _rotatePlayer(){
+            if (this._oldY < this.y){
+                this.rotation = 10;
+            }
+            else if (this._oldY > this.y) {
+                this.rotation = -10;
+            }
+            else this.rotation = 0; 
+            this._oldY = this.y;
+        }
+        
         // PUBLIC METHODS
         public update(): void {
             this.y = stage.mouseY;
             this._checkBounds();
+            this._rotatePlayer();
         }
     }
 }
