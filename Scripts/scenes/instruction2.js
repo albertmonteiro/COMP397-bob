@@ -19,7 +19,7 @@ var scenes;
             this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
             this.addChild(this._backgroundImage);
             //Add Menu Label
-            this._menuLabel = new objects.Label("LEVEL 2", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._menuLabel = new objects.Label("LEVEL 2", "60px Algerian", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
             // add the Back button to the MENU scene
             this._backButton = new objects.Button("startButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150, true);

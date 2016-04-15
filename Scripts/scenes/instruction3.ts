@@ -22,7 +22,7 @@ module scenes {
 
             //Add Menu Label
             this._menuLabel = new objects.Label(
-                "LEVEL 3 : Desert", "60px Consolas",
+                "LEVEL 3 : Desert", "60px Algerian",
                 "#ffff00",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);

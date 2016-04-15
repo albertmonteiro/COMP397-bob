@@ -20,7 +20,7 @@ var scenes;
             this.addChild(this._backgroundImage);
             //Add Menu Label
             // this._menuLabel = new objects.Label(
-            //     "INSTRUCTIONS", "60px Consolas",
+            //     "INSTRUCTIONS", "60px Algerian",
             //     "#ffff00",
             //     config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             // this.addChild(this._menuLabel);
