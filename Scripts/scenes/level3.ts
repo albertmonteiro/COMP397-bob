@@ -39,8 +39,8 @@ module scenes {
             // Set initial values
             this._tornadoCount = 1;
             // We do not set the livesValue and scoreValue again for Level3
-            livesValue = 5;
-            scoreValue = 0;
+            // livesValue = 5;
+            // scoreValue = 0;
             this._timeLapsed = 0;
             this._timeRemaining = 10;
 
