@@ -22,6 +22,7 @@ var win;
 var thankYou;
 var assetData = [
     // Add your Assets here
+    { id: "masterBackground", src: "../../Assets/images/masterBackground.jpg" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "menuBackground3", src: "../../Assets/images/menuBackground3.png" },
     { id: "instruction1Background", src: "../../Assets/images/instruction1Background.png" },
