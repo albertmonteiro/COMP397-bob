@@ -25,7 +25,7 @@ var scenes;
             //     config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             // this.addChild(this._menuLabel);
             // add the Back button to the MENU scene
-            this._backButton = new objects.Button("backButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150, true);
+            this._backButton = new objects.Button("backButton", config.Screen.CENTER_X + 10, config.Screen.CENTER_Y + 90, true);
             this.addChild(this._backButton);
             // add the Exit button to the MENU scene
             this._exitButton = new objects.Button("exitButton", config.Screen.CENTER_X + 340, config.Screen.CENTER_Y - 210, true);
@@ -39,12 +39,16 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // Back Button click event handler
         Instruction1.prototype._backButtonClick = function (event) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the MENU Scene
             scene = config.Scene.MENU;
             changeScene();
         };
         // Exit button click event handler
         Instruction1.prototype._exitButtonClick = function (event) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();

@@ -7,6 +7,7 @@ module scenes {
         private _restartButton: objects.Button;
         private _scoreLabel: objects.Label;
         private _highScoreLabel: objects.Label;
+        private _mouseClickSound: createjs.AbstractSoundInstance;
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -47,6 +48,8 @@ module scenes {
 
         // RESTART Button click event handler
         private _restartButtonClick(event: createjs.MouseEvent) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the LEVEL1 Scene
             scene = config.Scene.LEVEL1;
             changeScene();

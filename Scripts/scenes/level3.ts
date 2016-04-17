@@ -38,9 +38,9 @@ module scenes {
         public start(): void {
             // Set initial values
             this._tornadoCount = 1;
-            // We do not set the livesValue and scoreValue again for Level3
-            // livesValue = 5;
-            // scoreValue = 0;
+            // Set the lives and score value only at first level
+            livesValue = 5;
+            scoreValue = 0;
             this._timeLapsed = 0;
             this._timeRemaining = 10;
 
@@ -134,7 +134,7 @@ module scenes {
                     // turn off player engine
                     this._player.level1BackgroundMusic.stop();
                     // Switch to WIN scene
-                    scene = config.Scene.WIN;
+                    scene = config.Scene.INSTRUCTION2;
                     changeScene();
                 }
                 this._timeRemaining--;

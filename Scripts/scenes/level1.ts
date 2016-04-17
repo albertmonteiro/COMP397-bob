@@ -32,8 +32,9 @@ module scenes {
         public start(): void {
             // Set initial values
             this._carCount = 1;
-            livesValue = 5;
-            scoreValue = 0;
+            // Set the lives and score value only at first level
+            // livesValue = 5;
+            // scoreValue = 0;
             this._timeLapsed = 0;
             this._timeRemaining = 10;
             
@@ -132,7 +133,7 @@ module scenes {
                     // turn off player engine
                     this._player.level1BackgroundMusic.stop();
                     // Switch to next level
-                    scene = config.Scene.INSTRUCTION2;
+                    scene = config.Scene.WIN;
                     changeScene();
                 }
                 this._timeRemaining--;

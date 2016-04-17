@@ -6,6 +6,7 @@ module scenes {
         private _menuLabel: objects.Label;
         private _backButton: objects.Button;
         private _exitButton: objects.Button;
+        private _mouseClickSound: createjs.AbstractSoundInstance;
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -31,8 +32,8 @@ module scenes {
             
             this._backButton = new objects.Button(
                 "backButton",
-                config.Screen.CENTER_X,
-                config.Screen.CENTER_Y + 150, true);
+                config.Screen.CENTER_X + 10,
+                config.Screen.CENTER_Y + 90, true);
             this.addChild(this._backButton);
             
             // add the Exit button to the MENU scene
@@ -54,6 +55,8 @@ module scenes {
 
         // Back Button click event handler
         private _backButtonClick(event: createjs.MouseEvent) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the MENU Scene
             scene = config.Scene.MENU;
             changeScene();
@@ -61,6 +64,8 @@ module scenes {
         
         // Exit button click event handler
         private _exitButtonClick(event: createjs.MouseEvent) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();

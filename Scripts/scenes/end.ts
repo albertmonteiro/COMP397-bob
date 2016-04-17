@@ -74,8 +74,8 @@ module scenes {
 
         // RESTART Button click event handler
         private _restartButtonClick(event: createjs.MouseEvent) {
-            // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            // Switch to the MENU Scene
+            scene = config.Scene.MENU;
             changeScene();
         }
         

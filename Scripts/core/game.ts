@@ -31,6 +31,8 @@ var assetData:objects.Asset[] = [
     {id: "menuBackground", src:"../../Assets/images/menuBackground.png"},
     {id: "menuBackground3", src:"../../Assets/images/menuBackground3.png"},
     {id: "instruction1Background", src:"../../Assets/images/instruction1Background.png"},
+    {id: "instruction2Background", src:"../../Assets/images/instruction2Background.png"},
+    {id: "instruction3Background", src:"../../Assets/images/instruction3Background.png"},
     {id: "endSceneBackground", src:"../../Assets/images/endSceneBackground.png"},
     {id: "winSceneBackground", src:"../../Assets/images/winSceneBackground.png"},
     {id: "thankYouBackground", src:"../../Assets/images/thankYouBackground.png"},
@@ -42,6 +44,7 @@ var assetData:objects.Asset[] = [
     {id: "level2", src:"../../Assets/images/level2.png"},
     {id: "level3", src:"../../Assets/images/level3.png"},
     {id: "restartPedal", src:"../../Assets/images/restartPedal.png"},
+    {id: "mouseClick", src:"../../Assets/audio/click.mp3"},
     
     // Level1 assets
     {id: "road", src:"../../Assets/images/road.png"},

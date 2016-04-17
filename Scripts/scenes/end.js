@@ -46,8 +46,8 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // RESTART Button click event handler
         End.prototype._restartButtonClick = function (event) {
-            // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            // Switch to the MENU Scene
+            scene = config.Scene.MENU;
             changeScene();
         };
         // Exit button click event handler

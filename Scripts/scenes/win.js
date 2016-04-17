@@ -46,12 +46,16 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // RESTART Button click event handler
         Win.prototype._restartButtonClick = function (event) {
-            // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
+            // Switch to the MENU Scene
+            scene = config.Scene.MENU;
             changeScene();
         };
         // Exit button click event handler
         Win.prototype._exitButtonClick = function (event) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();

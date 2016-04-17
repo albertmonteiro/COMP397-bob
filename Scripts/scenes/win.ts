@@ -8,6 +8,7 @@ module scenes {
         private _exitButton: objects.Button;
         private _scoreLabel: objects.Label;
         private _highScoreLabel: objects.Label;
+        private _mouseClickSound: createjs.AbstractSoundInstance;
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -74,13 +75,17 @@ module scenes {
 
         // RESTART Button click event handler
         private _restartButtonClick(event: createjs.MouseEvent) {
-            // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
+            // Switch to the MENU Scene
+            scene = config.Scene.MENU;
             changeScene();
         }
         
         // Exit button click event handler
         private _exitButtonClick(event: createjs.MouseEvent) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();

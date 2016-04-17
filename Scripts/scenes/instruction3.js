@@ -16,11 +16,14 @@ var scenes;
         // Start Method
         Instruction3.prototype.start = function () {
             // add background to menu page
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground3"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("instruction3Background"));
             this.addChild(this._backgroundImage);
-            //Add Menu Label
-            this._menuLabel = new objects.Label("LEVEL 3 : Desert", "60px Algerian", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._menuLabel);
+            // //Add Menu Label
+            // this._menuLabel = new objects.Label(
+            //     "LEVEL 3 : Desert", "60px Algerian",
+            //     "#ffff00",
+            //     config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            // this.addChild(this._menuLabel);
             // add the Back button to the MENU scene
             this._backButton = new objects.Button("startButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 100, true);
             this.addChild(this._backButton);
@@ -36,12 +39,16 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // Button click event handler
         Instruction3.prototype._backButtonClick = function (event) {
+            // Play carStartSound
+            this._carStartSound = createjs.Sound.play("carStartSound");
             // Switch to the LEVEL3 Scene
-            scene = config.Scene.LEVEL3;
+            scene = config.Scene.LEVEL1;
             changeScene();
         };
         // Exit button click event handler
         Instruction3.prototype._exitButtonClick = function (event) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();

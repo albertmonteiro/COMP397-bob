@@ -11,6 +11,7 @@ module scenes {
         private _level2Button: objects.Button;
         private _level3Button: objects.Button;
         private _carStartSound: createjs.AbstractSoundInstance;
+        private _mouseClickSound: createjs.AbstractSoundInstance;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -94,12 +95,14 @@ module scenes {
             // Play carStartSound
             this._carStartSound = createjs.Sound.play("carStartSound");
             // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            scene = config.Scene.LEVEL3;
             changeScene();
         }
         
         // Instruction button click event handler
         private _instructionButtonClick(event: createjs.MouseEvent) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the INSTRUCTION1 Scene
             scene = config.Scene.INSTRUCTION1;
             changeScene();
@@ -107,6 +110,8 @@ module scenes {
         
         // Exit button click event handler
         private _exitButtonClick(event: createjs.MouseEvent) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();
@@ -115,7 +120,7 @@ module scenes {
         // LEVEL1 Button click event handler
         private _level1ButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            scene = config.Scene.LEVEL3;
             changeScene();
         }
         

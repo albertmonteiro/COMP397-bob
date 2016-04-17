@@ -17,7 +17,7 @@ var scenes;
         Level2.prototype.start = function () {
             // Set initial values
             this._enemyCount = 1;
-            // We do not set the livesValue and scoreValue again for Level2
+            // Set the lives and score value only at first level
             // livesValue = 5;
             // scoreValue = 0;
             this._timeLapsed = 0;

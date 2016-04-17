@@ -35,6 +35,8 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // RESTART Button click event handler
         ThankYou.prototype._restartButtonClick = function (event) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the LEVEL1 Scene
             scene = config.Scene.LEVEL1;
             changeScene();

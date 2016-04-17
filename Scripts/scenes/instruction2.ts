@@ -6,6 +6,8 @@ module scenes {
         private _menuLabel: objects.Label;
         private _backButton: objects.Button;
         private _exitButton: objects.Button;
+        private _carStartSound: createjs.AbstractSoundInstance;
+        private _mouseClickSound: createjs.AbstractSoundInstance;
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -17,15 +19,15 @@ module scenes {
         // Start Method
         public start(): void {
             // add background to menu page
-            this._backgroundImage = new createjs.Bitmap(assets.getResult("menuBackground"));
+            this._backgroundImage = new createjs.Bitmap(assets.getResult("instruction2Background"));
             this.addChild(this._backgroundImage);
 
-            //Add Menu Label
-            this._menuLabel = new objects.Label(
-                "LEVEL 2", "60px Algerian",
-                "#ffff00",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._menuLabel);
+            // //Add Menu Label
+            // this._menuLabel = new objects.Label(
+            //     "LEVEL 2", "60px Algerian",
+            //     "#ffff00",
+            //     config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            // this.addChild(this._menuLabel);
 
             // add the Back button to the MENU scene
             this._backButton = new objects.Button(
@@ -53,6 +55,8 @@ module scenes {
 
         // Button click event handler
         private _backButtonClick(event: createjs.MouseEvent) {
+            // Play carStartSound
+            this._carStartSound = createjs.Sound.play("carStartSound");
             // Switch to the LEVEL2 Scene
             scene = config.Scene.LEVEL2;
             changeScene();
@@ -60,6 +64,8 @@ module scenes {
         
         // Exit button click event handler
         private _exitButtonClick(event: createjs.MouseEvent) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();

@@ -55,17 +55,21 @@ var scenes;
             // Play carStartSound
             this._carStartSound = createjs.Sound.play("carStartSound");
             // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            scene = config.Scene.LEVEL3;
             changeScene();
         };
         // Instruction button click event handler
         Menu.prototype._instructionButtonClick = function (event) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the INSTRUCTION1 Scene
             scene = config.Scene.INSTRUCTION1;
             changeScene();
         };
         // Exit button click event handler
         Menu.prototype._exitButtonClick = function (event) {
+            // Play mouse click sound
+            this._mouseClickSound = createjs.Sound.play("mouseClick");
             // Switch to the THANKYOU Scene
             scene = config.Scene.THANKYOU;
             changeScene();
@@ -73,7 +77,7 @@ var scenes;
         // LEVEL1 Button click event handler
         Menu.prototype._level1ButtonClick = function (event) {
             // Switch to the LEVEL1 Scene
-            scene = config.Scene.LEVEL1;
+            scene = config.Scene.LEVEL3;
             changeScene();
         };
         // LEVEL2 Button click event handler
