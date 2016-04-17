@@ -52,7 +52,6 @@ var assetData:objects.Asset[] = [
     {id: "yellow_car", src:"../../Assets/images/yellow_car.png"},
     {id: "gas", src:"../../Assets/images/gas_can.png"},
     {id: "level1ScoreBox", src:"../../Assets/images/level1ScoreBox.png"},
-    {id: "level1LivesBox", src:"../../Assets/images/level1LivesBox.png"},
     {id: "level1TImerBox", src:"../../Assets/images/level1TImerBox.png"},    
     {id: "level1BackgroundMusic", src:"../../Assets/audio/level1BackgroundMusic.mp3"},
     {id: "carStartSound", src:"../../Assets/audio/carStartSound.mp3"},

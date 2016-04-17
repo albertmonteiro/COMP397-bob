@@ -40,6 +40,12 @@ var scenes;
             // added camel to the scene
             this._camel = new objects.Camel();
             this.addChild(this._camel);
+            // Added Tornado
+            this._tornado = new Array();
+            for (var tornado = 0; tornado < this._tornadoCount; tornado++) {
+                this._tornado[tornado] = new objects.Tornado();
+                this.addChild(this._tornado[tornado]);
+            }
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
@@ -52,22 +58,16 @@ var scenes;
             // add the level3LivesBox the scene
             this._level1LivesBox = new objects.Button("level3Box", 500, 355, false);
             this.addChild(this._level1LivesBox);
-            // Added Tornado
-            this._tornado = new Array();
-            for (var tornado = 0; tornado < this._tornadoCount; tornado++) {
-                this._tornado[tornado] = new objects.Tornado();
-                this.addChild(this._tornado[tornado]);
-            }
             // Add _scoreLabel
-            this._scoreLabel = new objects.Label("Score: " + scoreValue, "14px Consolas", "#000000", 600, 70, false);
+            this._scoreLabel = new objects.Label("Score: " + scoreValue, "14px Algerian", "#000000", 600, 70, false);
             this._scoreLabel.textAlign = "right";
             this.addChild(this._scoreLabel);
             // Add _timeLabel
-            this._timeLabel = new objects.Label("" + this._timeRemaining, "30px Consolas", "#000000", 570, 225, false);
+            this._timeLabel = new objects.Label("" + this._timeRemaining, "30px Algerian", "#000000", 570, 225, false);
             this._timeLabel.textAlign = "right";
             this.addChild(this._timeLabel);
             // Add _livesLabel
-            this._livesLabel = new objects.Label("Lives: " + livesValue, "14px Consolas", "#000000", 585, 390, false);
+            this._livesLabel = new objects.Label("Lives: " + livesValue, "14px Algerian", "#000000", 585, 390, false);
             this._livesLabel.textAlign = "right";
             this.addChild(this._livesLabel);
             // added collision3 manager to the scene

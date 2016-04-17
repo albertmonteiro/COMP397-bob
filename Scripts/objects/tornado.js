@@ -12,6 +12,7 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Tornado() {
             _super.call(this, "tornado");
+            this._speed.x = 5; // set the speed here
             // Generate random X coordinate
             var temp = Math.floor((Math.random() * 1000) + 1);
             this._reset(this._rightBounds + temp);
@@ -29,7 +30,7 @@ var objects;
         // reset the car offscreen
         Tornado.prototype._reset = function (value) {
             // Generate random speed for car
-            this._speed.x = Math.floor((Math.random() * 10) + 6);
+            // this._speed.x = Math.floor((Math.random() * 10) + 6);
             this.x = value;
             // Generate random Y coordinate
             var temp = Math.floor((Math.random() * 410) + 1);

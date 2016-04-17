@@ -87,22 +87,22 @@ module scenes {
             this.addChild(this._clockBox);
             
             // add the level1LivesBox the scene
-            this._level1LivesBox = new objects.Button("level1LivesBox", 483, 323, false);
+            this._level1LivesBox = new objects.Button("level1ScoreBox", 483, 375, false);
             this.addChild(this._level1LivesBox);
             
             // Add _scoreLabel
             this._scoreLabel = new objects.Label(
                 "Score: " + scoreValue,
-                "14px Consolas",
+                "14px Algerian",
                 "#000000",
-                600, 70, false);
+                575, 48, false);
             this._scoreLabel.textAlign = "right";
             this.addChild(this._scoreLabel);
             
             // Add _timeLabel
             this._timeLabel = new objects.Label(
                 "" + this._timeRemaining,
-                "30px Consolas",
+                "30px Algerian",
                 "#000000",
                 570, 225, false);
             this._timeLabel.textAlign = "right";
@@ -111,9 +111,9 @@ module scenes {
             // Add _livesLabel
             this._livesLabel = new objects.Label(
                 "Lives: " + livesValue,
-                "14px Consolas",
+                "14px Algerian",
                 "#000000",
-                585, 390, false);
+                560, 418, false);
             this._livesLabel.textAlign = "right";
             this.addChild(this._livesLabel);
             

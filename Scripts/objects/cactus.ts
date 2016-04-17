@@ -1,47 +1,54 @@
 module objects {
-    // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
+    // CLOUD CLASS ++++++++++++++++++++++++++++++++++++
     export class Cactus extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
-            super("cactus");
-            
-           this._speed.x = 5; //island speed
-           this._reset(this._rightBounds + 100);
-           this.name = "cactus";
+            super("cactus")
+
+            this._speed.x = 5; // set the speed here
+
+            // Generate random X coordinate
+            var temp = Math.floor((Math.random() * 1000) + 1);
+            this._reset(this._rightBounds + temp);
+            this.name = "cactus";
         }
         
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        protected _checkBounds(value:number):void {
-            // check to see if the top of the island 
-            // is outside the viewport
-            if(this.x <= value) {
-                this._reset(this._rightBounds + 100);
+        // check to see if the car is outside the viewport
+        protected _checkBounds(value: number): void {
+            if (this.x <= value) {
+                // Generate random X coordinate
+                var temp = Math.floor((Math.random() * 1000) + 1);
+                this._reset(this._rightBounds + temp);
             }
         }
         
-        // reset the ocean offscreen
-        protected _reset(value:number):void {          
+        // reset the car offscreen
+        protected _reset(value: number): void {
+            // Generate random speed for car
+            // this._speed.x = Math.floor((Math.random() * 10) + 6);
             this.x = value;
-            var temp = Math.floor((Math.random() * 4) + 1);
-            switch (temp) {
-                    case 1: this.y = 25;
-                        break;
-                    case 2: this.y = 145;
-                        break;
-                    case 3: this.y = 270;
-                        break;
-                    case 4: this.y = 390;
-                        break;
-            }
-            // this.y = Math.floor(Math.random() * this._topBounds) + this._bottomBounds;
+            // Generate random Y coordinate
+            var temp = Math.floor((Math.random() * 410) + 1);
+            this.y = temp;
+            // switch (temp) {
+            //     case 1: this.y = 24;
+            //         break;
+            //     case 2: this.y = 144;
+            //         break;
+            //     case 3: this.y = 268;
+            //         break;
+            //     case 4: this.y = 386;
+            //         break;
+            // }
         }
         
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update():void {
-            // scroll the island 5 px per frame
+            // scroll the car down the screen
             this.x -= this._speed.x;
             this._checkBounds(this._leftBounds - 100);
         }
